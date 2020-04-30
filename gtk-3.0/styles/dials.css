@@ -35,15 +35,12 @@ progressbar trough {
 	border-style: none;
 	border-width: 0em;
 
-	background-color: transparent;
-	padding: 0.2em;
+	background-color: @menu_color;
+	box-shadow: inset 0.2em 0.2em 0.2em shade(@menu_color,1.7) , inset -0.2em -0.2em 0.2em shade(@menu_color,0.3);
+
+	padding: 0.3em;
 }
-progressbar trough {
-	box-shadow: none;
-	background-color: @entry_color;
-	padding: 0em;
-	margin: 0.2em;
-}
+
 levelbar.horizontal trough,
 progressbar.horizontal trough {
 	min-height: 0.3em;
@@ -61,12 +58,12 @@ levelbar.discrete trough {
 }
 /*  if trough padding is 0.3em and block padding is 0.1em then some trough padding side should reduced to 0.2em  */
 levelbar.horizontal.discrete trough {
-	padding-right: 0.1em;
-	padding-left: 0.1em;
+	padding-right: 0.2em;
+	padding-left: 0.2em;
 }
 levelbar.vertical.discrete trough {
-	padding-top: 0.1em;
-	padding-bottom: 0.1em;
+	padding-top: 0.2em;
+	padding-bottom: 0.2em;
 }
 
 
@@ -95,21 +92,25 @@ levelbar.vertical.discrete trough block {
 
 levelbar trough block.empty,
 progressbar trough.empty progress {
-	background-color:  @entry_color;
+	background-color: transparent;
+	box-shadow: none ;
 }
 levelbar trough block.filled.low {
 	background-color: @dial_warning_color;
+	box-shadow: 0em 0em 0.3em @dial_warning_color;
 }
 levelbar trough block.filled,
 levelbar trough block.filled.high,
 progressbar trough progress.pulse, /* class .pulse lorsque la durer de la tache est inconnu  */
 progressbar trough progress {
 	background-color: @dial_info_color;
+	box-shadow: 0em 0em 0.3em @dial_info_color ;
 }
 /* 100% reached  */
 levelbar trough block.filled.full,
 progressbar trough.full progress {
 	background-color: @dial_good_color ;
+	box-shadow: 0em 0em 0.3em @dial_good_color ;
 }
 
 
@@ -127,10 +128,11 @@ entry progress.pulse{
 
 
 progressbar text{
-	background-color: transparent;
-	border-radius:  0em;
-	margin: 0em;
-	padding: 0em;
+	background-color: @menu_color;
+	box-shadow: inset 0em 0em 0.3em @idle_menu_color;
+	border-radius:  0.2em;
+	margin: 0.2em;
+	padding: 0.2em;
 }
 progressbar.vertical text {
 	margin-right: 1.2em;
@@ -141,4 +143,64 @@ progressbar.horizontal text {
 
 
 
+
+/*
+───────── sub popups buttons ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+list > row levelbar trough, popover levelbar trough, revealer levelbar trough,
+list > row levelbar.horizontal.discrete trough,popover levelbar.horizontal.discrete trough,revealer levelbar.horizontal.discrete trough,
+list > row levelbar.vertical.discrete trough,popover levelbar.vertical.discrete trough,revealer levelbar.vertical.discrete trough {
+	box-shadow: none;
+	background-color: transparent;
+	padding: 0.2em;
+}
+/*  if trough padding is 0.2em and block padding is 0.1em then some trough padding side should reduced to 0.1em  */
+list > row levelbar.horizontal.discrete trough,popover levelbar.horizontal.discrete trough,revealer levelbar.horizontal.discrete trough {
+	padding-right: 0.1em;
+	padding-left: 0.1em;
+}
+list > row levelbar.vertical.discrete trough,popover levelbar.vertical.discrete trough,revealer levelbar.vertical.discrete trough {
+	padding-top: 0.1em;
+	padding-bottom: 0.1em;
+}
+
+
+list > row levelbar trough block.empty,popover levelbar trough block.empty, revealer levelbar trough block.empty {
+	background-color:  @idle_menu_color;
+}
+list > row levelbar trough block.filled.low,popover levelbar trough block.filled.low,revealer levelbar trough block.filled.low,
+list > row levelbar trough block.filled,popover levelbar trough block.filled,revealer levelbar trough block.filled,
+list > row levelbar trough block.filled.high,popover levelbar trough block.filled.high,revealer levelbar trough block.filled.high,
+list > row levelbar trough block.filled.full,popover levelbar trough block.filled.full,revealer levelbar trough block.filled.full{
+	box-shadow: none;
+}
+
+
+
+
+list > row progressbar trough, popover progressbar trough, revealer progressbar trough {
+	box-shadow: none;
+	background-color:  @idle_menu_color;
+	padding: 0em;
+	margin: 0.2em;
+}
+
+list > row progressbar trough progress.pulse,popover progressbar trough progress.pulse,revealer progressbar trough progress.pulse,
+list > row progressbar trough progress,popover progressbar trough progress,revealer progressbar trough progress,
+list > row progressbar trough.full progress,popover progressbar trough.full progress,revealer progressbar trough.full progress {
+	box-shadow: none;
+}
+
+list > row progressbar text, popover progressbar text, revealer progressbar text{
+	background-color: transparent;
+	box-shadow: none;
+	border-radius:  0em;
+	margin: 0em;
+	padding: 0em;
+}
+list > row:selected progressbar text{
+}
+list > row:selected progressbar:disabled text{
+}
 

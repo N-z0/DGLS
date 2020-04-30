@@ -15,37 +15,58 @@ checkbutton{
  normal stat is unpressed */
 radio,
 check{
-	min-height: 0.6em;
-	min-width: 0.6em;
-	
-	margin: 0.3em;
-
 	border-style: solid;
-	border-radius: 1em;
-	border-width: 0.1em;
+	border-width: 0.2em;
+	border-left-color: alpha(@panel_light_color,0.1);
+	border-top-color: alpha(@panel_light_color,0.1);
+	border-right-color: alpha(@panel_dark_color,0.3);
+	border-bottom-color: alpha(@panel_dark_color,0.3);
 
-   background-color: @bg_item_color;
-	border-color: @fg_item_color;
+	border-radius: 0.1em;
+
+	background-color: alpha(@panel_light_color,0.01);
 
 	box-shadow: none ;
-	transition: none;
 
+	transition: all 250ms ease;
 }
+radio{
+	min-width: 0.5em;
+	min-height: 1.0em;
 
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+}
+check{
+	border-radius: 1em; 
+	min-width: 0.6em;
+	min-height: 0.6em;
+
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+}
 
 
 /* pressed or toggeled  */
 radio:active,radio:checked,
 check:active,check:checked{
-   background-color: @fg_item_color;
-	border-color: @bg_item_color;
+	background-color: alpha(@panel_dark_color,0.1);
+
+	border-left-color: alpha(@panel_dark_color,0.3);
+	border-top-color: alpha(@panel_dark_color,0.3);
+	border-right-color: alpha(@panel_dark_color,0.1);
+	border-bottom-color: alpha(@panel_dark_color,0.1);
 }
 
 /*  unknow state */
 radio:indeterminate,
 check:indeterminate{
-   background-color: @indeterminate_item_color;
-	border-color: transparent;
+	background-color: transparent; 
+
+	border-left-color: alpha(@panel_dark_color,0.1);
+	border-top-color: alpha(@panel_dark_color,0.1);
+	border-right-color: alpha(@panel_dark_color,0.2);
+	border-bottom-color: alpha(@panel_dark_color,0.2);
 }
 
 
@@ -53,20 +74,93 @@ check:indeterminate{
 /*  disabled state */
 radio:disabled,
 check:disabled{
-   background-color: @bg_item_color;
-	border-color: @disabled_fg_item_color;
 }
 
-radio:disabled:checked,
-check:disabled:checked{
-   background-color: @disabled_fg_item_color;
-	border-color: @bg_item_color;
+
+
+
+
+/*
+───────── sub popups checks ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+revealer radiobutton, revealer checkbutton,
+list > row radiobutton, list > row checkbutton,
+popover radiobutton,popover checkbutton{
+}
+revealer radiobutton:disabled, revealer checkbutton:disabled,
+list > row radiobutton:disabled, list > row checkbutton:disabled,
+popover radiobutton:disabled,popover checkbutton:disabled{
 }
 
-radio:disabled:indeterminate,
-check:disabled:indeterminate{
-   background-color: @disabled_indeterminate_item_color;
+revealer check,revealer radio,
+treeview check,treeview radio,
+list > row check,list > row radio,
+popover check,popover radio,
+menu > menuitem > check, menu > menuitem > radio {
+	min-height: 0.6em;
+	min-width: 0.6em;
+	
+	background-clip: border-box;
+	margin: 0.3em;
+
+	border-radius: 1em;
+	border-width: 0.1em;
+
+   background-color: @menu_color;
+	border-color: @text_color;
+
+	box-shadow: none ;
+	transition: none;
+}
+
+revealer check:active,revealer radio:active,
+treeview check:active,treeview radio:active,
+list > row check:active,list > row radio:active,
+popover check:active,popover radio:active,
+menu > menuitem > check:active, menu > menuitem > radio:active,
+
+revealer check:checked,revealer radio:checked,
+treeview check:checked,treeview radio:checked,
+list > row check:checked,list > row radio:checked,
+popover check:checked,popover radio:checked,
+menu > menuitem > check:checked, menu > menuitem > radio:checked {
+   background-color: @text_color;
+	border-color: @menu_color;
+}
+
+revealer check:indeterminate,revealer radio:indeterminate,
+treeview check:indeterminate,treeview radio:indeterminate,
+list > row check:indeterminate,list > row radio:indeterminate,
+popover check:indeterminate,popover radio:indeterminate,
+menu > menuitem > check:indeterminate, menu > menuitem > radio:indeterminate{
+   background-color: mix(@menu_color,@text_color,0.5);
 	border-color: transparent;
 }
 
+
+revealer check:disabled,revealer radio:disabled,
+treeview check:disabled,treeview radio:disabled,
+list > row check:disabled,list > row radio:disabled,
+popover check:disabled,popover radio:disabled,
+menu > menuitem > check:disabled, menu > menuitem > radio:disabled {
+   background-color: @menu_color;
+	border-color: mix(@menu_color,@text_color,0.2);
+}
+
+revealer check:checked:disabled,revealer radio:checked:disabled,
+treeview check:checked:disabled,treeview radio:checked:disabled,
+list > row check:checked:disabled,list > row radio:checked:disabled,
+popover check:checked:disabled,popover radio:checked:disabled,
+menu > menuitem > check:checked:disabled, menu > menuitem > radio:checked:disabled {
+   background-color: mix(@menu_color,@text_color,0.1);
+	border-color: @menu_color;
+}
+revealer check:indeterminate:disabled,revealer radio:indeterminate:disabled,
+treeview check:indeterminate:disabled,treeview radio:indeterminate:disabled,
+list > row check:indeterminate:disabled,list > row radio:indeterminate:disabled,
+popover check:indeterminate:disabled,popover radio:indeterminate:disabled,
+menu > menuitem > check:indeterminate:disabled, menu > menuitem > radio:indeterminate:disabled {
+   background-color: mix(@menu_color,@text_color,0.1);
+	border-color: transparent;
+}
 

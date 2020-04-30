@@ -3,14 +3,15 @@
 /* bouton glisseur */
 slider {
 	border-radius: 1em;
+	border-width: 0.1em;
 	border-style: solid;
-	border-color: @fg_item_color;
-	border-width: 0em;
+	border-left-color: alpha(@panel_light_color,0.1);
+	border-top-color: alpha(@panel_light_color,0.1);
+	border-right-color: alpha(@panel_dark_color,0.5);
+	border-bottom-color: alpha(@panel_dark_color,0.5);
 	
-	background-clip: border-box;
-	background-color: @bg_item_color;
-	box-shadow: none;
-	transition: none;
+	background-color: shade(@panel_color,1.1);
+	box-shadow: inset 0.2em 0.2em 0.2em alpha(@panel_light_color,0.1), inset -0.2em -0.2em 0.2em alpha(@panel_dark_color,0.5), 0.05em 0.05em 0.05em alpha(black,0.5);
 
 	min-height: 0.6em;
 	min-width: 0.6em;
@@ -22,15 +23,11 @@ et il faut que j'adapte la size de  tout les autres elements, car jutilise la si
 switch slider {
 	border-radius: 10em;
 	border-width: 1em;
-	box-shadow: none;
+	box-shadow: inset 2em 2em 2em alpha(@panel_light_color,0.1), inset -2em -2em 2em alpha(@panel_dark_color,0.5), 0.5em 0.5em 0.5em alpha(black,0.5);
 	min-width: 6em;
 	min-height: 6em;
 }
 
-slider:disabled {
-	box-shadow: none ;
-	border-color: @disabled_fg_item_color;
-}
 
 
 /* glissiere pour bouton glisseur */
@@ -38,16 +35,16 @@ switch,
 scrollbar trough,
 scale trough {
 	border-radius: 1em;
-	border-width: 0em;
+	border-width: 0.3em;
+	border-style: ridge;
+	border-color: alpha(shade(@panel_color,0.6),0.7);
 
-	background-clip: border-box;
-
-	background-color: @entry_color;
-	box-shadow: none;
-	transition: none;
+	background-color: @menu_color;
+	box-shadow: inset 0em 0em 0.3em @idle_menu_color;
 }
 switch {
 	border-radius: 10em;
+	border-width: 3em;
 
 	transition: all 300ms ease 100ms;
 
@@ -56,21 +53,20 @@ switch {
 	text-shadow: none;
 	font-size: 0.1em;
 
-	background-color: @switch_off_color;
-	box-shadow: none ;
-	background-clip: border-box;
+	background-clip: padding-box;  /* a cause de bug je crois quil faut redefinir le background-clip ici  */
 
+	background-color: mix(@menu_color,@error_color,0.9);
+	box-shadow: inset 0em 0em 3em shade(@menu_color,0.05);
 }
 switch:checked {
-	background-color: @switch_on_color;
+	background-color: mix(@menu_color,@good_color,0.9);
 }
 switch:disabled {
-	background-color: @disabled_switch_off_color;
+	background-color: mix(@menu_color,@error_color,0.2);
 }
 switch:disabled:checked {
-	background-color: @disabled_switch_on_color;
+	background-color: mix(@menu_color,@good_color,0.2);
 }
-
 
 
 
@@ -78,7 +74,7 @@ switch:disabled:checked {
 scale trough highlight {
 	border-radius: 1em;
 	background-color: alpha(@info_color,0.9);
-	box-shadow: inset 0em 0em 0.3em @entry_color;
+	box-shadow: inset 0em 0em 0.3em @idle_menu_color;
 }
 scale:disabled trough highlight {
 	background-color: alpha(@info_color,0.1);
@@ -89,7 +85,7 @@ scrollbar trough fill,
 scale trough fill{
 	border-radius: 1em;
 	background-color: alpha(@text_color,0.9);
-	box-shadow: inset 0em 0em 0.3em @entry_color;
+	box-shadow: inset 0em 0em 0.3em @idle_menu_color;
 }
 scrollbar:disabled trough fill,
 scale:disabled trough fill{
@@ -146,10 +142,11 @@ scale.horizontal trough fill{
 
 /* marks are little lines at the side of the scalers showing some referencial values */
 scale marks mark indicator{
-	color: @fg_item_color;
+ 	text-shadow: 0em 0em 0.2em @active_label_color;
+	color: @active_label_color;
 }
 scale:disabled marks mark indicator{
-	color: @disabled_fg_item_color;
+	color: @disabled_label_color;
 }
 scale.vertical marks mark indicator {
 	min-width: 0.3em;
@@ -163,8 +160,8 @@ scale.horizontal marks mark indicator {
 
 
 scale value{
-	background-color: @menu_color ;
-	box-shadow: inset 0em 0em 0.3em @menu_shadow_color , 0em 0em 0.3em @menu_shadow_color;
+	background-color: @menu_color;
+	box-shadow: inset 0em 0em 0.3em @idle_menu_color;
 	border-radius:  0.2em;
 	margin: 0.2em;
 	padding: 0.2em;
@@ -204,18 +201,65 @@ scrollbar.fine-tune{
 */
 
 
+/* bouton glisseur */
+list > row slider, popover slider, revealer slider {
+	border-color: @text_color;
+	border-width: 0.1em;
+
+	background-clip: border-box;
+
+	background-color: @menu_color;
+	box-shadow: none;
+	transition: none;
+}
+list > row switch slider, popover switch slider, revealer switch slider {
+	border-width: 1em;
+}
+
+
+list > row scale trough, popover scale trough, revealer scale trough,
+list > row scrollbar trough, popover scrollbar trough, revealer scrollbar trough {
+	border-width: 0.1em;
+	border-style: solid;
+	border-color: @text_color;
+
+	background-clip: border-box;
+
+	background-color: @idle_menu_color;
+	box-shadow: none;
+	transition: none;
+}
+list > row switch, popover switch, revealer switch {
+	border-width: 1em;
+	border-style: solid;
+	border-color: @text_color;
+
+	background-clip: border-box;
+
+	box-shadow: none;
+	box-shadow: none ;
+}
+
+
+list > row scrollbar:disabled slider, popover scrollbar:disabled slider, revealer scrollbar:disabled slider,
+list > row scrollbar:disabled trough, popover scrollbar:disabled trough, revealer scrollbar:disabled trough,
+list > row scale:disabled slider, popover scale:disabled slider, revealer scale:disabled slider,
+list > row scale:disabled trough, popover scale:disabled trough, revealer scale:disabled trough,
+list > row switch:disabled slider, popover switch:disabled slider, revealer switch:disabled slider,
+list > row switch:disabled, popover switch:disabled, revealer switch:disabled {
+	box-shadow: none ;
+	border-color: mix(@menu_color,@text_color,0.2);
+}
 
 
 
-
-
-scale trough highlight,
-scale:disabled trough highlight{
+list > row scale trough highlight, popover scale trough highlight, revealer scale trough highlight,
+list > row scale:disabled trough highlight, popover scale:disabled trough highlight, revealer scale:disabled trough highlight{
 	box-shadow: none;
 }
 
-scale trough fill,
-scrollbar trough fill{
+list > row scale trough fill, popover scale trough fill, revealer scale trough fill,
+list > row scrollbar trough fill, popover scrollbar trough fill, revealer scrollbar trough fill{
 	box-shadow: none;
 	background-color: @menu_color;
 }

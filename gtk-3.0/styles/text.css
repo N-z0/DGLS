@@ -43,30 +43,97 @@ menu menuitem accelerator{
 */
 
 label{ /* affect: expander title, radiobutton,checkbutton, frame title */
-	color: @fg_item_color;
+ 	text-shadow: 0em 0em 0.2em @active_label_color;
+	color: @active_label_color;
 }
 
 label:disabled{
-	color: @disabled_fg_item_color;
+	color: @disabled_label_color;
 	text-shadow: none ;
 }
 
 /* web links */
 label link{
+ 	text-shadow: 0em 0em 0.2em @link_label_color;
 	color: @link_label_color;
 }
 label link:visited{
+ 	text-shadow: 0em 0em 0.2em @link_visited_label_color;
 	color: @link_visited_label_color;
 }
 
 /* la selection de text nest pas faisable sur les buttons */
 label selection{
-	color: @bg_item_color;
-	background-color: @fg_item_color;
+	color: @panel_color;
+	text-shadow: none ;
+	background-color: alpha(@select_color,0.9);
 }
 
 
 
+/*
+─────────    labels of buttons   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+menubar > menuitem > label,/* concern only menubar buttons, but not sub menus */
+modelbutton label,
+button label { /* button arrow concern entries combo button */
+ 	text-shadow: 0em 0em 0.2em @active_label_color;
+	color: @active_label_color;
+}
+
+/* web links */
+button.link label{
+ 	text-shadow: 0em 0em 0.2em @link_label_color;
+	color: @link_label_color;
+}
+button.link:visited label{
+ 	text-shadow: 0em 0em 0.2em @link_visited_label_color;
+	color: @link_visited_label_color;
+}
+
+menubar > menuitem:disabled > label,/* concern menu bar buttons */
+modelbutton:disabled label,
+button:disabled label{
+	color: @disabled_label_color;
+	text-shadow: none ;
+}
+
+
+
+/*
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+      subs popup text style  
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+revealer label,
+tooltip label,
+popover label{ /* cellview for combo.button menu */
+	text-shadow: none ;
+	color: @text_color;
+}
+
+revealer label:disabled, 
+tooltip label:disabled, 
+popover label:disabled{
+	color: mix(@menu_color,@text_color,0.2);
+}
+
+revealer label link,
+popover label link{
+	color: @link_text_color;
+}
+revealer label link:visited,
+popover label link:visited{
+	color: @link_visited_text_color;
+}
+
+revealer label selection,
+popover label selection{ 
+	color: @menu_color;
+	background-color: @text_color;
+}
 
 
 
@@ -77,12 +144,12 @@ label selection{
 menu > menuitem > label,
 menu > menuitem > cellview{ /* cellview for combo.button menu */
 	text-shadow: none ;
-	color: @fg_item_color;
+	color: @text_color;
 }
 
 menu > menuitem:disabled > label,
 menu > menuitem:disabled > cellview {
-	color: @disabled_fg_item_color;
+	color: mix(@menu_color,@text_color,0.2);
 }
 
 menu > menuitem > label link{
@@ -94,7 +161,7 @@ menu > menuitem > label link:visited{
 
 menu > menuitem:hover > label,
 menu > menuitem:hover > cellview{ /* in menu only :hover is effective on not disabled menuitem */
-	color: @bg_item_color;
+	color: @menu_color;
 }
 
 
@@ -107,7 +174,7 @@ list label, /* there is some text not in row */
 stackswitcher button label,
 notebook tabs tab label{
 	text-shadow: none ;
-	color: @fg_item_color;
+	color: @text_color
 }
 list label link{
 	color: @link_text_color;
@@ -119,18 +186,18 @@ list label link:visited{
 list label:disabled,
 stackswitcher button:disabled label,
 notebook tabs tab:disabled label {
-	color: @disabled_fg_item_color;
+	color: mix(@menu_color,@text_color,0.2);
 }
 
 list > row:selected label,
 stackswitcher button:checked label, stackswitcher button:active label,
 notebook tab:checked label, notebook tab:active label {
-	color: @bg_item_color;
+	color: @menu_color;
 }
 
 list label selection{ /* possible */
-	color: @bg_item_color;
-	background-color: @fg_item_color;
+	color: @menu_color;
+	background-color: @text_color;
 }
 
 
@@ -153,7 +220,7 @@ iconview, /* no label */
 calendar,  /* no label */
 treeview{ /* no label */
 	text-shadow: none ;
-	color: @fg_item_color;
+	color: @text_color
 }
 
 
@@ -170,7 +237,7 @@ textview:disabled text,
 iconview:disabled, /* no label */
 calendar:disabled,  /* no label */
 treeview:disabled{ /* no label */ 
-	color: @disabled_fg_item_color;
+	color: mix(@menu_color,@text_color,0.2);
 }
 
 
@@ -178,95 +245,156 @@ treeview:disabled{ /* no label */
 entry selection,
 spinbutton selection, 
 textview text selection{
-	color: @bg_item_color;
-	background-color: @fg_item_color;
+	color: @menu_color;
+	background-color: @text_color;
 }
 iconview:selected,
 calendar:selected,
 treeview:selected{
-	color: @bg_item_color;
+	color: @menu_color;
 }
-
 
 
 
 /*
-─────────    labels of buttons   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+─────────   sub bouton labels  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 */
 
-menubar > menuitem > label,/* concern only menubar buttons, but not sub menus */
 
-list > row:selected modelbutton label,
-notebook tabs tab:checked modelbutton label, notebook tabs tab:active modelbutton label,
-modelbutton label,
-list > row button label,
-notebook tabs tab:checked button label, notebook tabs tab:active button label,
-button label { /* button arrow concern entries combo button */
-	color: @fg_item_color;
+revealer button label,
+popover button label, 
+list button label, list row:selected button label,
+notebook tab button label, notebook tab:checked button label, notebook tab:active button label,
+
+revealer modelbutton label,
+popover modelbutton label,
+list modelbutton label, list row:selected modelbutton label{
+	text-shadow: none ;
+	color: @text_color;
 }
-/* web links */
-button.link label{
-	color: @link_label_color;
+revealer button.link label,
+popover button.link label,
+list button.link label, list row:selected button.link label{
+	text-shadow: none ;
+	color: @link_text_color;
 }
-button.link:visited label{
-	color: @link_visited_label_color;
+revealer button.link:visited label,
+popover button.link:visited label,
+list button.link:visited label, list row:selected button.link:visited label{
+	text-shadow: none ;
+	color: @link_visited_text_color;
 }
-button.suggested-action label{
+revealer button.suggested-action label,
+popover button.suggested-action label,
+list button.suggested-action label, list row:selected button.suggested-action label,
+notebook tab button.suggested-action label, notebook tab:checked button.suggested-action label, notebook tab:active button.suggested-action label{
+	text-shadow: none ;
 	color: mix(@text_color,@good_color,0.5);
 }
-button.destructive-action label{
+revealer button.destructive-action label,
+popover button.destructive-action label,
+list button.destructive-action label, list row:selected button.destructive-action label,
+notebook tab button.destructive-action label, notebook tab:checked button.destructive-action label, notebook tab:active button.destructive-action label{
+	text-shadow: none ;
 	color: mix(@text_color,@warning_color,0.5);
 }
 
 
-menubar > menuitem:disabled > label, /* concern menu bar buttons */
-list > row:selected modelbutton:disabled label,
-notebook tabs tab:checked modelbutton:disabled label, notebook tabs tab:active modelbutton:disabled label,
-modelbutton:disabled label,
-list > row button:disabled label,
-notebook tabs tab:checked button:disabled label, notebook tabs tab:active button:disabled label,
-button:disabled label{
-	color: red;
+
+revealer button:disabled label,
+popover button:disabled label,
+list button:disabled label, list row:selected button:disabled label,
+notebook tab button:disabled label, notebook tab:checked button:disabled label, notebook tab:active button:disabled label,
+
+revealer modelbutton:disabled label,
+popover modelbutton:disabled label,
+list modelbutton:disabled label, list row:selected modelbutton:disabled label{
+	color: mix(@menu_color,@text_color,0.2);
 }
-button.suggested-action:disabled label{
+revealer button.suggested-action:disabled label,
+popover button.suggested-action:disabled label,
+list button.suggested-action:disabled label, list row:selected button.suggested-action:disabled label,
+notebook tab button.suggested-action:disabled label, notebook tab:checked button.suggested-action:disabled label, notebook tab:active button.suggested-action:disabled label{
 	color: mix(@menu_color,@good_color,0.2);
 }
-button.destructive-action:disabled label{
+revealer button.destructive-action:disabled label,
+popover button.destructive-action:disabled label,
+list button.destructive-action:disabled label, list row:selected button.destructive-action:disabled label,
+notebook tab button.destructive-action:disabled label, notebook tab:checked button.destructive-action:disabled label, notebook tab:active button.destructive-action:disabled label{
 	color: mix(@menu_color,@warning_color,0.2);
 }
 
 
-menubar > menuitem:hover > label,
 
-button:active label,button:checked label,
-list > row:selected button:active label, list > row:selected button:checked label, /* useless but coherent */
-notebook tabs tab:checked button:active label, notebook tabs tab:checked button:checked label, /* useless but coherent */
-notebook tabs tab:active button:active label, notebook tabs tab:active button:checked label, /* useless but coherent */
+revealer button:checked label,
+popover button:checked label, 
+list button:checked label, list row:selected button:checked label,
+notebook tab button:checked label,notebook tab:checked button:checked label,notebook tab:active button:checked label,
 
-modelbutton:active label,modelbutton:checked label,
-list > row:selected modelbutton:active label, list > row:selected modelbutton:checked label, /* useless but coherent */
-notebook tabs tab:checked modelbutton:active label, notebook tabs tab:checked modelbutton:checked label, /* useless but coherent */
-notebook tabs tab:active modelbutton:active label, notebook tabs tab:active modelbutton:checked label, /* useless but coherent */
+revealer modelbutton:checked label,
+popover modelbutton:checked label,
+list modelbutton:checked label, list row:selected modelbutton:checked label,
+notebook tab modelbutton:checked label,notebook tab:checked modelbutton:checked label,notebook tab:active modelbutton:checked label,
 
-button.link:active,button.link:checked,
-button.suggested-action:active label,button.suggested-action:checked label,
-button.destructive-action:active label,button.destructive-action:checked label{
-	color: @bg_item_color;
+revealer button.suggested-action:checked label,
+popover button.suggested-action:checked label,
+list button.suggested-action:checked label, list row:selected button.suggested-action:checked label,
+notebook tab button.suggested-action:checked label, notebook tab:checked button.suggested-action:checked label, notebook tab:active button.suggested-action:checked label,
+
+revealer button.destructive-action:checked label,
+popover button.destructive-action:checked label,
+list button.destructive-action:checked label, list row:selected button.destructive-action:checked label,
+notebook tab button.destructive-action:checked label, notebook tab:checked button.destructive-action:checked label, notebook tab:active button.destructive-action:checked label{
+	color: @menu_color;
 }
 
 
-menubar > menuitem:indeterminate > label,
-button:indeterminate label,
-list > row:selected button:indeterminate label, /* useless but coherent */
-notebook tabs tab:checked button:indeterminate label, notebook tabs tab:active button:indeterminate label, /* useless but coherent */
-modelbutton:indeterminate label,
-list > row:selected modelbutton:indeterminate label, /* useless but coherent */
-notebook tabs tab:checked modelbutton:indeterminate label, notebook tabs tab:active modelbutton:indeterminate label, /* useless but coherent */
-button.suggested-action:indeterminate label,
-button.destructive-action:indeterminate label{
-	color: @bg_item_color;
+
+revealer button:active label,
+popover button:active label, 
+list button:active label, list row:selected button:active label,
+notebook tab button:active label,notebook tab:checked button:active label,notebook tab:active button:active label,
+
+revealer modelbutton:active label,
+popover modelbutton:active label,
+list modelbutton:active label, list row:selected modelbutton:active label,
+notebook tab modelbutton:active label,notebook tab:checked modelbutton:active label,notebook tab:active modelbutton:active label,
+
+revealer button.suggested-action:checked label,
+popover button.suggested-action:active label,
+list button.suggested-action:active label, list row:selected button.suggested-action:active label,
+notebook tab button.suggested-action:active label, notebook tab:checked button.suggested-action:active label, notebook tab:active button.suggested-action:active label,
+
+revealer button.destructive-action:active label,
+popover button.destructive-action:active label,
+list button.destructive-action:active label, list row:selected button.destructive-action:active label,
+notebook tab button.destructive-action:active label, notebook tab:checked button.destructive-action:active label, notebook tab:active button.destructive-action:active label{
+	color: @menu_color;
 }
 
+
+
+revealer button:indeterminate label,
+popover button:indeterminate label,
+list button:indeterminate label, list row:selected button:indeterminate label,
+notebook tab button:indeterminate label, notebook tab:checked button:indeterminate label,notebook tab:active button:indeterminate label,
+
+revealer modelbutton:indeterminate label,
+popover modelbutton:indeterminate label,
+list modelbutton:indeterminate label, list row:selected modelbutton:indeterminate label,
+notebook tab modelbutton:indeterminate label, notebook tab:checked modelbutton:indeterminate label,notebook tab:active modelbutton:indeterminate label,
+
+revealer button.suggested-action:indeterminate label,
+popover button.suggested-action:indeterminate label,
+list button.suggested-action:indeterminate label, list row:selected button.suggested-action:indeterminate label,
+notebook tab button.suggested-action:indeterminate label, notebook tab:checked button.suggested-action:indeterminate label, notebook tab:active button.suggested-action:indeterminate label,
+
+revealer button.destructive-action:indeterminate label,
+popover button.destructive-action:indeterminate label,
+list button.destructive-action:indeterminate label, list row:selected button.destructive-action:indeterminate label,
+notebook tab button.destructive-action:indeterminate label, notebook tab:checked button.destructive-action:indeterminate label, notebook tab:active button.destructive-action:indeterminate label{
+	color: transparent;
+}
 
 
 

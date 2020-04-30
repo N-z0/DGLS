@@ -2,17 +2,19 @@
 
 
 headerbar,menubar,toolbar,statusbar,actionbar,searchbar,infobar{
-	border-radius:  0em;
-	background-color: @bar_color;
-	box-shadow: inset 0em 0em 0.3em @bar_shadow_color;
-	padding: 0em;
-	margin: 0em;
+	border-radius:  0.1em;
+   padding-left: 0.0em;
+   padding-right: 0.0em;
+	background-color: alpha(@panel_light_color,0.05);
+	box-shadow: inset 0.5em 0.5em 0.5em alpha(@panel_light_color,0.1) , inset -0.5em -0.5em 0.5em alpha(@panel_dark_color,0.1);
 }
 
 
-/* avec les app Gnome la menubar et la toolbar sont merge dans cette nouvelle bar */
+/* avec les app Gnome la menubar et la toolbar sont merge dans cette nouvelle bar 
+par defaut headerbar a un background transparent */
 headerbar {
-	background-color: @panel_color; /* headerbar is not put on the window background, so i prefer to change his color */
+	background-color:  mix(@panel_light_color,@panel_color,0.95);
+	background-image: radial-gradient( circle farthest-corner at top left, alpha(@panel_light_color,0.1),alpha(@panel_dark_color,0.1));
 }
 /* can add typical window frame controls, such as minimize, maximize and close buttons. */
 headerbar.titlebar {
@@ -76,20 +78,17 @@ searchbar{
 
 /*  bar  donnant des info et pouvant contenir des boutons */
 infobar{
-	background-color: alpha(@info_bar_color,0.3);
-	box-shadow: inset 0em 0em 0.3em @info_bar_shadow_color;
+	background-color: alpha(@info_color,0.3);
 }
 infobar.question{
 }
 infobar.info {
 }
 infobar.warning {
-	background-color: alpha(@warning_bar_color,0.3);
-	box-shadow: inset 0em 0em 0.3em @warning_bar_shadow_color;
+	background-color: alpha(@warning_color,0.3);
 }
 infobar.error {
-	background-color:  alpha(@error_bar_color,0.3);
-	box-shadow: inset 0em 0em 0.3em @error_bar_shadow_color;
+	background-color:  alpha(@error_color,0.3);
 }
 
 
@@ -99,5 +98,20 @@ infobar.error {
 /*
 ───────── sub ─────────────────────────────────────────────────────────────────────────────────────────────────────────
 */
+
+/* not visible in popup menu list because should not be in */
+popover headerbar,list headerbar,revealer headerbar,
+popover menubar,list menubar,revealer menubar,
+popover toolbar,list toolbar,revealer toolbar,
+popover statusbar,list statusbar,revealer statusbar,
+popover actionbar,list actionbar,revealer actionbar,
+popover searchbar,list searchbar,revealer searchbar,
+popover infobar,list infobar,revealer infobar,
+popover infobar.warning,list infobar.warning,revealer infobar.warning,
+popover infobar.error,list infobar.error,revealer infobar.error{
+	border-radius:  0.0em;
+	background-color: transparent;
+	box-shadow: none;
+}
 
 

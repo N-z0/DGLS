@@ -16,14 +16,13 @@ toolpalette est un ensemble bouton qui devlope des items cacher (menu acordeon)
 frame > border,
 toolpalette,
 expander {
-	border-color: @separator_color;
+	box-shadow: inset 0em 0em 0.2em @active_label_color, 0em 0em 0.2em @active_label_color;
+	border-color: @active_label_color;
 	border-style: solid;
-	border-width:  0.3em;
+	border-width:  0.1em;
 	border-radius:  0.3em;
 	padding: 0.3em;
 	margin: 0.3em;
-
-	background-color: transparent;
 }
 frame   { /* let the frame title covering the border */
 	margin-top: 0em;
@@ -38,9 +37,10 @@ frame   { /* let the frame title covering the border */
 
 /* separateur de zones */
 separator {
-	background-color: @separator_color;
-	min-width: 0.3em;
-	min-height: 0.3em;
+	background-color:  @active_label_color;
+	box-shadow: 0em 0em 0.2em @active_label_color;
+	min-width: 0.1em;
+	min-height: 0.1em;
  }
 separator.horizontal{
 }
@@ -52,10 +52,16 @@ separator.vertical{
  separateur de zones ajustable */
 paned > separator {
 	border-radius: 1em;
-	border-width: 0em;
+	border-width: 0.1em;
+	border-style: solid;
+	border-left-color: alpha(@panel_light_color,0.1);
+	border-top-color: alpha(@panel_light_color,0.1);
+	border-right-color: alpha(@panel_dark_color,0.15);
+	border-bottom-color: alpha(@panel_dark_color,0.15);
 
 	margin: 0.1em;
-	box-shadow: inset 0em 0em 0.2em @fg_item_color ;
+	background-color: alpha(@panel_light_color,0.05);
+	box-shadow: 0.1em 0.1em 0.3em alpha(black,0.5);
 
 	min-width: 0.3em;
 	min-height: 0.3em;
@@ -64,8 +70,6 @@ paned > separator {
 
 
 /* not visible but spacing */
-menu separator,
-list separator,
 button separator,
 headerbar separator,
 menubar separator,
@@ -82,6 +86,53 @@ infobar separator {
 	border-width: 0em;
 	border-style: none;
 	box-shadow: none;
+	background-color: transparent;
+}
+/* disabled separators */
+button separator{
+	margin: 0em;
 }
 
+/* 
+────── Sub zones separators ───────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+/* disable separators in popup menu list because should not be there */
+popover frame > border, list frame > border, revealer frame > border,
+popover toolpalette, list toolpalette, revealer toolpalette,
+popover expander, list expander, revealer expander {
+	border-width:  0.0em;
+	border-radius:  0.0em;
+	padding: 0.0em;
+	margin: 0.0em;
+	box-shadow: none;
+	background-color: transparent;
+}
+
+
+/* disable separators */
+menu separator, popover separator, list separator, list row separator , revealer separator{
+	min-width: 0em;
+	min-height: 0em;
+
+	margin: 0em;
+
+	box-shadow: none;
+	background-color: transparent;
+}
+/* revert some space for some separator */
+menu separator, list separator {
+	margin: 0.3em;
+}
+
+
+
+/* should also not be here, but i keep this already made good style */
+popover paned > separator, list paned > separator, revealer paned > separator {
+	margin: 0.1em;
+	background-color: @menu_color;
+	border-color: @text_color;
+	border-style: solid;
+	box-shadow: none;
+}
 

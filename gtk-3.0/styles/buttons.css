@@ -13,28 +13,37 @@ menubar > menuitem,
 expander arrow,
 modelbutton,
 button{
-	margin: 0.3em;
-	padding: 0.2em; /* pour avoir une marge entre border et le contenu */
-
 	border-style: solid;
-	border-width: 0.1em;
-	border-radius: 1em;
+	border-width: 0.2em;
+	padding: 0.2em; /* pour avoir une marge entre border et le contenu */
+	border-left-color: alpha(@panel_light_color,0.1);
+	border-top-color: alpha(@panel_light_color,0.1);
+	border-right-color: alpha(@panel_dark_color,0.3);
+	border-bottom-color: alpha(@panel_dark_color,0.3);
 
+	border-radius: 0.1em;
 
-   background-color: @bg_item_color;
-	border-color: @fg_item_color;
-	box-shadow: none ;
+	background-color: alpha(@panel_light_color,0.01);
 
+	box-shadow: none;
+
+	transition: all 250ms ease;
 }
+
 
 /* pressed or toggeled  */
 entry.combo~button.combo:active,entry.combo~button.combo:checked,
-menubar > menuitem:active, menubar > menuitem:checked, menubar > menuitem:hover,
+menubar > menuitem:active,menubar > menuitem:checked,menubar > menuitem:hover,
 expander arrow:active,expander arrow:checked,
 modelbutton:active,modelbutton:checked,
 button:active,button:checked{
-   background-color: @fg_item_color;
-	border-color: @bg_item_color;
+	background-color: alpha(@panel_dark_color,0.1);
+	box-shadow: none ;
+
+	border-left-color: alpha(@panel_dark_color,0.3);
+	border-top-color: alpha(@panel_dark_color,0.3);
+	border-right-color: alpha(@panel_dark_color,0.1);
+	border-bottom-color: alpha(@panel_dark_color,0.1);
 }
 
 /*  unknow state */
@@ -43,8 +52,13 @@ menubar > menuitem:indeterminate,
 expander arrow:indeterminate,
 modelbutton:indeterminate,
 button:indeterminate{
-   background-color: @indeterminate_item_color;
-	border-color: transparent;
+	background-color: transparent; 
+	box-shadow: none ;
+
+	border-left-color: alpha(@panel_dark_color,0.1);
+	border-top-color: alpha(@panel_dark_color,0.1);
+	border-right-color: alpha(@panel_dark_color,0.2);
+	border-bottom-color: alpha(@panel_dark_color,0.2);
 }
 
 
@@ -55,32 +69,7 @@ menubar > menuitem:disabled,
 expander arrow:disabled,
 modelbutton:disabled,
 button:disabled{
-   background-color: @bg_item_color;
-	border-color: @disabled_fg_item_color;
 }
-
-entry.combo~button.combo:disabled:checked,
-menubar > menuitem:disabled:checked,
-expander arrow:disabled:checked,
-modelbutton:disabled:checked,
-button:disabled:checked{
-   background-color: @disabled_fg_item_color;
-	border-color: @bg_item_color;
-}
-
-entry.combo~button.combo:disabled:indeterminate,
-menubar > menuitem:disabled:indeterminate,
-expander arrow:disabled:indeterminate,
-modelbutton:disabled:indeterminate,
-button:disabled:indeterminate{
-   background-color: @disabled_indeterminate_item_color;
-	border-color: transparent;
-}
-
-
-
-
-
 
 
 
@@ -163,4 +152,127 @@ les entries ont 0.1em de marge a prendre en compte pour avoir un bouton carrer *
 entry.combo~button.combo arrow{
    min-width: 1.2em; 
 }
+
+
+
+
+
+
+
+/*
+───────── sub popups buttons ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+
+list > row button.suggested-action, popover button.suggested-action, notebook tab button.suggested-action, revealer button.suggested-action,
+list > row button.destructive-action, popover button.destructive-action, notebook tab button.destructive-action, revealer button.destructive-action,
+list > row button, popover button, notebook tab button, revealer button, 
+list > row modelbutton, popover modelbutton,revealer modelbutton,
+list > row menubar > menuitem, popover menubar > menuitem,revealer menubar > menuitem,
+list > row expander arrow, popover expander arrow, revealer expander arrow,
+list > row entry.combo~button.combo.combo, popover entry.combo~button.combo.combo, revealer entry.combo~button.combo.combo {
+	margin: 0.3em;
+
+	border-radius: 1em;
+	border-width: 0.1em;
+
+	background-clip: border-box;
+
+   background-color: @menu_color;
+	border-color: @text_color;
+	box-shadow: none ;
+
+	transition: none;
+}
+list > row button.suggested-action, popover button.suggested-action, notebook tab button.suggested-action, revealer button.suggested-action{
+	border-color: mix(@text_color,@good_color,0.5);
+}
+list > row button.destructive-action, popover button.destructive-action, notebook tab button.destructive-action, revealer button.destructive-action{
+	border-color: mix(@text_color,@warning_color,0.5);
+}
+
+
+
+list > row button:active, popover button:active, notebook tab button:active, revealer button:active,
+list > row modelbutton:active, popover modelbutton:active, revealer modelbutton:active,
+list > row expander arrow:active, popover expander arrow:active, revealer expander arrow:active,
+list > row entry.combo~button.combo:active.combo, popover entry.combo~button.combo:active.combo, revealer entry.combo~button.combo:active.combo,
+
+list > row button:checked, popover button:checked, notebook tab button:checked, revealer button:checked,
+list > row modelbutton:checked, popover modelbutton:checked, revealer modelbutton:checked,
+list > row expander arrow:checked, popover expander arrow:checked, revealer expander arrow:checked,
+list > row entry.combo~button.combo:checked.combo, popover entry.combo~button.combo:checked.combo, revealer entry.combo~button.combo:checked.combo {
+   background-color: @text_color;
+	border-color: @menu_color;
+}
+list > row button:active.suggested-action, popover button:active.suggested-action, notebook tab button:active.suggested-action, revealer button:active.suggested-action,
+list > row button:checked.suggested-action, popover button:checked.suggested-action, notebook tab button:checked.suggested-action, revealer button:checked.suggested-action {
+   background-color: mix(@text_color,@good_color,0.5);
+}
+list > row button:active.destructive-action, popover button:active.destructive-action, notebook tab button:active.destructive-action, revealer button:active.destructive-action,
+list > row button:checked.destructive-action, popover button:checked.destructive-action, notebook tab button:checked.destructive-action, revealer button:checked.destructive-action{
+   background-color: mix(@text_color,@warning_color,0.5);
+}
+
+
+list > row button:indeterminate, popover button:indeterminate, notebook tab button:indeterminate, revealer button:indeterminate,
+list > row modelbutton:indeterminate, popover modelbutton:indeterminate, revealer modelbutton:indeterminate,
+list > row expander arrow:indeterminate, popover expander arrow:indeterminate, revealer expander arrow:indeterminate,
+list > row entry.combo~button.combo:indeterminate.combo, popover entry.combo~button.combo:indeterminate.combo, revealer entry.combo~button.combo:indeterminate.combo{
+   background-color: mix(@menu_color,@text_color,0.5);
+	border-color: transparent;
+}
+list > row button:indeterminate.suggested-action, popover button:indeterminate.suggested-action, notebook tab button:indeterminate.suggested-action, revealer button:indeterminate.suggested-action{
+   background-color: mix(@menu_color,mix(@text_color,@good_color,0.5),0.5);
+}
+list > row button:indeterminate.destructive-action, popover button:indeterminate.destructive-action, notebook tab button:indeterminate.destructive-action, revealer button:indeterminate.destructive-action{
+	background-color: mix(@menu_color,mix(@text_color,@warning_color,0.5),0.5);
+}
+
+
+
+list > row menubar > menuitem:disabled, popover menubar > menuitem:disabled,revealer menubar > menuitem:disabled,
+
+list > row button:disabled, popover button:disabled, notebook tab button:disabled, revealer button:disabled,
+list > row modelbutton:disabled, popover modelbutton:disabled, revealer modelbutton:disabled,
+list > row expander arrow:disabled, popover expander arrow:disabled, revealer expander arrow:disabled,
+list > row entry.combo~button.combo:disabled.combo, popover entry.combo~button.combo:disabled.combo, revealer entry.combo~button.combo:disabled.combo {
+   background-color: @menu_color;
+	border-color: mix(@menu_color,@text_color,0.2);
+}
+list > row button:disabled.suggested-action, popover button:disabled.suggested-action, notebook tab button:disabled.suggested-action,revealer button:disabled.suggested-action{
+	border-color: mix(@menu_color,mix(@text_color,@good_color,0.5),0.2);
+}
+list > row button:disabled.destructive-action, popover button:disabled.destructive-action, notebook tab button:disabled.destructive-action,revealer button:disabled.destructive-action{
+	border-color: mix(@menu_color,mix(@text_color,@warning_color,0.5),0.2);
+}
+
+list > row button:checked:disabled, popover button:checked:disabled, notebook tab button:checked:disabled, revealer button:checked:disabled,
+list > row modelbutton:checked:disabled, popover modelbutton:checked:disabled, revealer modelbutton:checked:disabled,
+list > row expander arrow:checked:disabled, popover expander arrow:checked:disabled, revealer expander arrow:checked:disabled,
+list > row entry.combo~button.combo:checked:disabled.combo, popover entry.combo~button.combo:checked:disabled.combo, revealer entry.combo~button.combo:checked:disabled.combo {
+   background-color: mix(@menu_color,@text_color,0.2);
+	border-color: @menu_color;
+}
+list > row button:checked:disabled.suggested-action, popover button:checked:disabled.suggested-action, notebook tab button:checked:disabled.suggested-action, revealer button:checked:disabled.suggested-action{
+   background-color: mix(@menu_color,mix(@text_color,@good_color,0.5),0.2);
+}
+list > row button:checked:disabled.destructive-action, popover button:checked:disabled.destructive-action, notebook tab button:checked:disabled.destructive-action, revealer button:checked:disabled.destructive-action{
+   background-color: mix(@menu_color,mix(@text_color,@warning_color,0.5),0.2);
+}
+
+list > row button:indeterminate:disabled, popover button:indeterminate:disabled, notebook tab button:indeterminate:disabled, revealer button:indeterminate:disabled,
+list > row modelbutton:indeterminate:disabled, popover modelbutton:indeterminate:disabled, revealer modelbutton:indeterminate:disabled,
+list > row expander arrow:indeterminate:disabled, popover expander arrow:indeterminate:disabled, revealer expander arrow:indeterminate:disabled,
+list > row entry.combo~button.combo:indeterminate:disabled.combo, popover entry.combo~button.combo:indeterminate:disabled.combo, revealer entry.combo~button.combo:indeterminate:disabled.combo {
+   background-color: mix(@menu_color,@text_color,0.1);
+	border-color: transparent;
+}
+list > row button:indeterminate:disabled.suggested-action, popover button:indeterminate:disabled.suggested-action, notebook tab button:indeterminate:disabled.suggested-action, revealer button:indeterminate:disabled.suggested-action{
+   background-color: mix(@menu_color,mix(@text_color,@good_color,0.5),0.1);
+}
+list > row button:indeterminate:disabled.destructive-action, popover button:indeterminate:disabled.destructive-action, notebook tab button:indeterminate:disabled.destructive-action, revealer button:indeterminate:disabled.destructive-action{
+   background-color: mix(@menu_color,mix(@text_color,@warning_color,0.5),0.1);
+}
+
 

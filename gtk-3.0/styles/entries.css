@@ -21,29 +21,63 @@ textview.view
 */
 
 /* je n'arrive pas a modifier les border de textview */
-textview {
-	padding: 0em;
-	margin:  0em;
-	border-width: 1em;
+textview border{
+	min-width: 3px;
+	min-height: 3px;
+	margin: 3px;
+	padding: 3px;
+	border-width: 3px;
    border: solid;
+   background-color: green;
+	border-color: blue;
+   color: blue; 
 }
-/* alors jutilise textview text */
+/* alors jutilise textview text , mais il faut dans ce cas rajouter de la marge */
+textview text{
+	padding: 0.3em;
+}
+
+
+
+
+
 textview text,
 entry {
-	margin: 0.3em;
-	padding: 0.3em;
-
-	border-radius: 0em;
-	border-width: 0.1em;
+	border-width: 0.2em;
 	border-style: solid;
-	border-color: @fg_item_color;
+	border-left-color: alpha(@panel_dark_color,0.1);
+	border-top-color: alpha(@panel_dark_color,0.1);
+	border-right-color: alpha(@panel_light_color,0.1);
+	border-bottom-color: alpha(@panel_light_color,0.1);
 
-   background-color: @entry_color;
-	box-shadow: none ;
+	background-color: @functional_menu_color;
+	box-shadow: inset 0em 0em 0.3em @idle_menu_color;
 }
 
 
-entry.read-only, entry:disabled, textview:disabled text{
-	border-color: @disabled_fg_item_color;
+
+
+
+
+/*
+───────── sub  entries  ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+list > row entry, popover entry, revealer entry,
+list > row textview text, popover textview text, revealer textview text{
+	margin: 0.3em;
+	border-radius: 0em;
+	border-width: 0.1em;
+
+	background-clip: border-box;
+
+   background-color: @functional_menu_color;
+	border-color: @active_text_color;
+	box-shadow: none ;
+}
+list > row entry.read-only, popover entry.read-only, revealer entry.read-only,
+list > row entry:disabled, popover entry:disabled, revealer entry:disabled,
+list > row textview:disabled text, popover textview:disabled text, revealer textview:disabled text{
+	border-color: @disabled_text_color;
 }
 

@@ -27,57 +27,93 @@
 	error_bg_color
 */
 
-
 /* primary colors actually use */
+@define-color panel_color rgb(25%,25%,23%);
+@define-color panel_light_color rgb(100%,100%,92%);
+@define-color panel_dark_color rgb(5%,5%,3%);
+@define-color label_color rgb(80%,80%,40%);
+
+@define-color menu_color rgb(9%,10%,10%); 
+@define-color text_color rgb(70%,70%,90%);
+
+@define-color popup_color rgba(9%,10%,9%,1.0); /* j'aurais aimer un peu transparent mais il y a un problem avec Menu */
+@define-color title_color rgba(70%,90%,70%,1.0);
+
+@define-color link_color rgb(0%,100%,100%);
+@define-color link_visited_color rgb(100%,0%,100%);
+
 @define-color info_color blue; /* positive,level high,loading */
 @define-color good_color green;  /* positive,full,suggestion,ok,yes,loaded */
 @define-color warning_color yellow; /* caution,low*/
 @define-color error_color red; /* negative,no,bad,fail */ 
 
-@define-color window_color rgb(15%,10%,5%);
-@define-color item_color rgb(60%,75%,60%);
 
 
-
-@define-color panel_light_color shade(@window_color,1.5);
-@define-color panel_shade_color shade(@window_color,0.5);
-/* @define-color panel_dark_color shade(@window_color,0.1); */
-
-@define-color item_bright_color shade(@item_color,1.1);
-@define-color item_dark_color shade(@item_color,0.1);
-
-
-
-
-@define-color panel_color alpha(@window_color,1.0); 
-@define-color separator_color alpha(@panel_light_color,0.3); 
-@define-color screen_color alpha(@panel_shade_color,0.3);
-@define-color bar_color alpha(@panel_light_color,0.3);
-@define-color bar_shadow_color alpha(@panel_shade_color,0.3);
-@define-color list_color alpha(@item_dark_color,0.9);
-@define-color row_color alpha(@panel_light_color,0.3); 
-
-@define-color menu_color alpha(@panel_light_color,0.9);
-@define-color menu_shadow_color alpha(@panel_shade_color,0.9);
-@define-color menu_tab_color alpha(@panel_light_color,0.5); 
-
-@define-color entry_color alpha(@item_dark_color,0.9); /* used by dials and scrollers */
-
-/* @define-color item_glow_color alpha(@item_bright_color,0.5); */
-
-@define-color fg_item_color alpha(@item_bright_color,0.9);
-@define-color bg_item_color alpha(@item_dark_color,0.9);
-@define-color indeterminate_item_color mix(alpha(@item_dark_color,0.9),alpha(@item_bright_color,0.9),0.5);
-@define-color disabled_fg_item_color alpha(@item_bright_color,0.1);
-@define-color disabled_indeterminate_item_color mix(alpha(@item_dark_color,0.9),alpha(@item_bright_color,0.1),0.5);
+/* derivated colors */
+@define-color active_label_color alpha(@label_color,0.9);
+@define-color link_label_color alpha(mix(@label_color,@link_color,0.5),0.9);
+@define-color link_visited_label_color alpha(mix(@label_color,@link_visited_color,0.5),0.9);
+@define-color disabled_label_color alpha(@label_color,0.3);
 
 
 @define-color dial_info_color alpha(@info_color,0.5);
 @define-color dial_good_color alpha(@good_color,0.5);
 @define-color dial_warning_color alpha(@warning_color,0.5);
 
-@define-color switch_off_color alpha(@error_color,0.5);
-@define-color switch_on_color alpha(@good_color,0.5);
-@define-color disabled_switch_off_color alpha(@error_color,0.1);
-@define-color disabled_switch_on_color alpha(@good_color,0.1);
+
+@define-color active_text_color alpha(@text_color,0.9);
+@define-color link_text_color alpha(mix(@text_color,@link_color,0.5),0.9);
+@define-color link_visited_text_color alpha(mix(@text_color,@link_visited_color,0.5),0.9);
+@define-color disabled_text_color alpha(@text_color,0.3); /* mix(@menu_color,@text_color,0.2); */ 
+
+@define-color functional_menu_color shade(@menu_color,1.1);
+@define-color idle_menu_color shade(@menu_color,0.1);
+
+@define-color functional_popup_color shade(@popup_color,1.1);
+@define-color idle_popup_color shade(@popup_color,0.1);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@define-color selected_bg_color rgb(0%,100%,0%);
+@define-color selected_fg_color rgb(0%,0%,0%);
+@define-color tooltip_bg_color rgb(0%,0%,0%);
+@define-color tooltip_fg_color rgb(100%,100%,100%);
+
+
+@define-color screen_color shade(@theme_flat_color,0.5);
+
+
+@define-color theme_shade_color alpha(@dark_color,0.5);
+
+@define-color theme_tooltip_bg_color @tooltip_bg_color;
+@define-color theme_tooltip_fg_color @tooltip_fg_color;
+
+@define-color theme_positive_on_color alpha(@good_color,0.8);
+@define-color theme_positive_glow_color alpha(@good_color,0.7);
+@define-color theme_negative_on_color alpha(@error_color,0.8);
+@define-color theme_negative_glow_color alpha(@error_color,0.7);
+
+@define-color theme_empty_color shade(@theme_flat_color,0.5);
+@define-color theme_full_color alpha(@good_color,0.3);
+@define-color theme_low_color alpha(@warning_color,0.3);
+@define-color theme_high_color alpha(@info_color,0.3);
+
+@define-color theme_undershoot_color alpha(@text_color,0.3);
+@define-color theme_overshoot_color alpha(@error_color,0.3);
 

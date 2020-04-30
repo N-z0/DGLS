@@ -30,7 +30,7 @@
 	
 	box-shadow: none;
 	background-color: transparent;
-	background-clip: border-box;
+	background-clip: padding-box;  /* The background extends to the inside edge of the border */
 
 	-gtk-icon-effect: dim;
  	-gtk-icon-shadow: none;

@@ -15,17 +15,16 @@ calendar,
 treeview{
 	border-width: 0em;
 
-	margin:  0.3em;
-	padding: 0em; /* pour avoir une petite marge entre le contenu */
+	margin:  0.1em;
+	padding: 0.1em; /* pour avoir une petite marge entre le contenu */
 
-	background-color: @entry_color;
-	box-shadow: inset 0em 0em 0.3em @fg_item_color ;
+	background-color: @menu_color;
+	box-shadow: inset 0em 0em 0.3em @idle_menu_color;
 }
 
 calendar:selected,
 treeview:selected{
-	background-color: @fg_item_color;
-	box-shadow: inset 0em 0em 0.3em @entry_color;
+	background-color: @text_color;
 }
 
 

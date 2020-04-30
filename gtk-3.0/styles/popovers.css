@@ -11,24 +11,40 @@ popover aka popup bulle (souvent utiliser pour afficher un reglage de volume)
  */
 revealer > *, /* overlay revealer dont have background-color, so let set the background child */
 popover,
-tooltip,
-menu {
-	background-color: @menu_color ;
-	box-shadow: inset 0em 0em 0.3em @menu_shadow_color , 0em 0em 0.3em @menu_shadow_color;
-	border-radius:  0.3em;
+tooltip {
+	background-color: @functional_popup_color;
+	box-shadow: inset 0em 0em 0.5em @idle_popup_color , 0em 0em 0.3em @idle_popup_color;
+	border-radius:  0.1em;
 	padding: 0.3em;
 	margin:  0.3em; /* give some space for the shadow */
 }
 
+actionbar revealer > *,
+searchbar revealer > *,
+infobar revealer > *{
+	border-radius:  0em;
+	background-color: transparent;
+	box-shadow: none;
+	padding: 0em;
+	margin:  0em; 
+}
 
 /* 
 menuitem est un sub element de menu
 If the menuitem has a submenu, it gets another CSS node with name arrow, which has the .left or .right style class.
 */
-menu > arrow, /* for scroll up or down long menu */
+/* for scroll up or down long menu */
+menu {
+	background-color: @idle_popup_color ;
+	box-shadow: 0em 0em 0.3em @idle_popup_color;
+	border-radius:  0.1em;
+	padding: 0.15em;
+	margin:  0.3em; /* give some space for the shadow */
+}
+menu > arrow,
 menu > menuitem {
-	background-color: @menu_tab_color;
-	box-shadow: inset 0em 0em 0.3em @fg_item_color ;
+	background-color: @functional_popup_color;
+	box-shadow: inset 0em 0em 0.3em @idle_popup_color ;
 
 	border-radius: 0.1em;
 	border-width: 0em;
@@ -48,11 +64,6 @@ menu > menuitem > arrow{
 
 menu > arrow:hover,
 menu > menuitem:hover{
-	background-color: @fg_item_color;
-	box-shadow: inset 0em 0em 0.3em @menu_color ;
-}
-
-menu > menuitem:disabled {
-box-shadow: none ;
+	background-color: @text_color;
 }
 

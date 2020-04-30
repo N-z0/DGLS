@@ -10,6 +10,7 @@ mais je suppose quelle signal la fenetre en arriere plan, parent de toutes les a
 window,
 GladeWindow {
 	background-color: @panel_color;
+	background-image: radial-gradient( circle farthest-corner at top left, mix(@panel_light_color,@panel_color,0.9), mix(@panel_dark_color,@panel_color,0.9));
 }
 
 /* sous fenetre specialiser, en general plus petite */
@@ -18,20 +19,14 @@ messagedialog,
 printdialog,
 assistant {
 	background-color: @panel_color;
+	background-image: radial-gradient( circle farthest-corner at top left, mix(@panel_light_color,@panel_color,0.95), mix(@panel_dark_color,@panel_color,0.95));
 }
 
 
-
-
-
-
-
-
-/* use as a background of menuS */
-window.popup {
-	background-color: transparent;
-}
 /* special windows (no effects?) */
+window.popup {
+	background-color: red;
+}
 window.tooltip {
 	background-color: blue;
 }

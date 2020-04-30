@@ -3,12 +3,14 @@
 */
 
 image{ /* affect: expander title, radiobutton,checkbutton, frame title */
-	color: @fg_item_color;
+	color: @active_label_color;
+	-gtk-icon-shadow: 0em 0em 0.2em @active_label_color;
 	-gtk-icon-effect: dim;
 }
 
 image:disabled{ 
-	color:  @disabled_fg_item_color;
+	color: @disabled_label_color;
+	-gtk-icon-shadow: none ;
 }
 
 /* web links */
@@ -23,107 +25,42 @@ image link:visited{
 
 
 
-
 /*
 ─────────    images of buttons   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 */
 
-menubar > menuitem > image, /* must concern only menubar buttons, but not sub menus */
-button.down,
-button.up , /* without, button color of spinbutton and scrollbar not change, because not includ images */
-check,
-radio,
-button image,
-list > row:selected button image,
-notebook tabs tab:checked button image, notebook tabs tab:active button image,
+menubar > menuitem > image,/* must concern only menubar buttons, but not sub menus */
 modelbutton image,
-list > row:selected modelbutton image,
-notebook tabs tab:checked modelbutton image, notebook tabs tab:active modelbutton image,
-arrow{
-	color: @fg_item_color;
+button image,
+
+button.down, button.up , /* without, button color of spinbutton and scrollbar not change, because not includ images */
+check,radio,
+
+arrow{ 
+	color: @active_label_color;
+	-gtk-icon-shadow: 0em 0em 0.2em @active_label_color;
 	-gtk-icon-effect: dim;
 }
 /* web links */
 button.link image{
+ 	-gtk-icon-shadow: 0em 0em 0.3em @active_label_color;
 	color: @active_label_color;
 }
 button.link:visited image{
+ 	-gtk-icon-shadow: 0em 0em 0.3em @link_visited_label_color;
 	color: @link_visited_label_color;
 }
-button.suggested-action image{
-	color: mix(@text_color,@good_color,0.5);
-}
-button.destructive-action image{
-	color: mix(@text_color,@warning_color,0.5);
-}
-
-
 
 menubar > menuitem:disabled > image,/* concern menu bar buttons */
-button:disabled.down,
-button:disabled.up, /* without no spinbutton and scrollbar button color change, because not includ label image, bug? */
-check:disabled,
-radio:disabled,
-button:disabled image,
-list > row:selected button:disabled image,
-notebook tabs tab:checked button:disabled image, notebook tabs tab:active button:disabled image,
 modelbutton:disabled image,
-list > row:selected modelbutton:disabled image,
-notebook tabs tab:checked modelbutton:disabled image, notebook tabs tab:active modelbutton:disabled image,
+button:disabled image, 
+
+button:disabled.down, button:disabled.up, /* without no spinbutton and scrollbar button color change, because not includ label image, bug? */
+check:disabled,radio:disabled,
+
 arrow:disabled{ 
-	color: @disabled_fg_item_color;
-}
-button.suggested-action:disabled image{
-	color: mix(@menu_color,@good_color,0.2);
-}
-button.destructive-action:disabled image{
-	color: mix(@menu_color,@warning_color,0.2);
-}
-
-
-menubar > menuitem:hover > image,
-button:active.down,button:checked.down,
-button:active.up,button:checked.up,
-check:active ,check:checked, 
-radio:active,radio:checked,
-button:active image,button:checked image,
-list > row:selected button:active image,list > row:selected button:checked image, /* useless but coherent */
-notebook tabs tab:checked button:active image,notebook tabs tab:checked button:checked image, /* useless but coherent */
-notebook tabs tab:active button:active image,notebook tabs tab:active button:checked image, /* useless but coherent */
-modelbutton:active image, modelbutton:checked image,
-list > row:selected modelbutton:active image,list > row:selected modelbutton:checked image, /* useless but coherent */
-notebook tabs tab:checked modelbutton:active image,notebook tabs tab:checked  modelbutton:checked image, /* useless but coherent */
-notebook tabs tab:active modelbutton:active image,notebook tabs tab:active  modelbutton:checked image, /* useless but coherent */
-arrow:active,arrow:checked{
-	color: @bg_item_color;
-}
-button.suggested-action:active image,button.suggested-action:checked image{
-	color: mix(@menu_color,@good_color,0.2);
-}
-button.destructive-action:active image,button.destructive-action:checked image{
-	color: mix(@menu_color,@warning_color,0.2);
-}
-
-
-
-button:indeterminate.down,
-button:indeterminate.up,
-check:indeterminate,
-radio:indeterminate,
-button:indeterminate image,
-list > row:selected button:indeterminate image, /* useless but coherent */
-notebook tabs tab:checked button:indeterminate image, notebook tabs tab:active button:indeterminate image, /* useless but coherent */
-modelbutton:indeterminate image,
-list > row:selected modelbutton:indeterminate image, /* useless but coherent */
-notebook tabs tab:checked modelbutton:indeterminate image, notebook tabs tab:active modelbutton:indeterminate image,/* useless but coherent */
-arrow:indeterminate{
-	color: @bg_item_color;
-}
-button.suggested-action:indeterminate image{
-	color: transparent;
-}
-button.destructive-action:indeterminate image{
-	color: transparent;
+	color: @disabled_label_color;
+	-gtk-icon-shadow: none ;
 }
 
 
@@ -137,13 +74,13 @@ revealer image,
 tooltip image,
 popover image{
 	-gtk-icon-shadow: none ;
-	color: @fg_item_color;
+	color: @text_color;
 }
 
 revealer image:disabled,
 tooltip image:disabled, 
 popover image:disabled{
-	color: @disabled_fg_item_color;
+	color: @disabled_label_color;
 }
 
 revealer image link,
@@ -157,7 +94,6 @@ popover image link:visited{
 
 
 
-
 /*
 ─────────   menu image style  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
 */
@@ -167,12 +103,12 @@ menu > menuitem > arrow, /* arrow indicating a sub menu */
 menu > menuitem > cellview, /* cellview for combo.button menu */
 menu > menuitem > image {
 	-gtk-icon-shadow: none ;
-	color: @fg_item_color;
+	color: @text_color;
 }
 menu > menuitem >  image link{
 	color: @link_text_color;
 }
-menu > menuitem > image link:visited{
+menu > menuitem >  image link:visited{
 	color: @link_visited_text_color;
 }
 
@@ -181,7 +117,7 @@ menu > menuitem:disabled > image link,
 menu > menuitem:disabled > arrow,
 menu > menuitem:disabled > cellview,
 menu > menuitem:disabled > image {
-	color: @disabled_fg_item_color;
+	color: mix(@menu_color,@text_color,0.2);
 }
 
 /* in menu only :hover is effective on not disabled items */
@@ -189,8 +125,8 @@ menu > arrow:hover,
 menu > menuitem:hover > image link,
 menu > menuitem:hover > arrow,
 menu > menuitem:hover > cellview,
-menu > menuitem:hover > image {
-	color: @bg_item_color;
+menu > menuitem:hover > image{
+	color: @menu_color;
 }
 
 
@@ -206,7 +142,7 @@ stackswitcher button image,
 notebook tabs tab image,
 notebook tabs arrow{ /* arrow for scroll the tabs */
 	-gtk-icon-shadow: none ;
-	color: @fg_item_color;
+	color: @text_color
 }
 list image link{
 	color: @link_text_color;
@@ -219,14 +155,14 @@ list image:disabled,
 stackswitcher button:disabled image,
 notebook tabs tab:disabled image,
 notebook tabs arrow:disabled {
-	color: @disabled_fg_item_color;
+	color: mix(@menu_color,@text_color,0.2);
 }
 
 list > row:selected image,
 stackswitcher button:checked image, stackswitcher button:active image,
-notebook tabs tab:checked image, notebook tabs tab:active image,
+notebook tab:checked image, notebook tab:active image,
 notebook tabs arrow:active{
-	color: @bg_item_color;
+	color: @menu_color;
 }
 
 
@@ -248,7 +184,7 @@ calendar,
 treeview
 {
 	-gtk-icon-shadow: none ;
-	color: @fg_item_color;
+	color: @text_color
 }
 
 
@@ -264,16 +200,221 @@ entry image:disabled, entry.read-only image, entry:disabled image, /*  should ha
 iconview:disabled, /* no label */
 calendar:disabled,  /* no label */
 treeview:disabled { /* no label */ 
-	color: @disabled_fg_item_color;
+	color: mix(@menu_color,@text_color,0.2);
 }
 
 
 iconview:selected,
 calendar:selected,
 treeview:selected{
-	color: @bg_item_color;
+	color: @menu_color;
 }
 
+
+
+/*
+─────────   sub bouton image style  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+revealer button.down, revealer button.up,
+popover button.down, popover button.up, 
+list button.down, list row:selected button.down, list button.up, list row:selected button.up,
+
+revealer check, revealer radio,
+popover check, popover radio, 
+list check, list row:selected check, list radio, list row:selected radio,
+menu > menuitem > check, menu > menuitem > radio, 
+
+revealer button image,
+popover button image, 
+list button image, list row:selected button image,
+notebook tab button image, notebook tab:checked button image, notebook tab:active button image,
+
+revealer modelbutton image, 
+popover modelbutton image, 
+list modelbutton image, list row:selected modelbutton image,
+
+revealer arrow,
+popover arrow,
+list arrow{
+	-gtk-icon-shadow: none ;
+	color: @text_color;
+}
+revealer button.link image,
+popover button.link image,
+list button.link image, list row:selected button.link image{
+	-gtk-icon-shadow: none ;
+	color: @link_text_color;
+}
+revealer button.link:visited image,
+popover button.link:visited image,
+list button.link:visited image, list row:selected button.link:visited image{
+	-gtk-icon-shadow: none ;
+	color: @link_visited_text_color;
+}
+revealer button.suggested-action image,
+popover button.suggested-action image,
+list button.suggested-action image, list row:selected button.suggested-action image,
+notebook tab button.suggested-action image, notebook tab:checked button.suggested-action image, notebook tab:active button.suggested-action image{
+	-gtk-icon-shadow: none ;
+	color: mix(@text_color,@good_color,0.5);
+}
+revealer button.destructive-action image,
+popover button.destructive-action image,
+list button.destructive-action image, list row:selected button.destructive-action image,
+notebook tab button.destructive-action image, notebook tab:checked button.destructive-action image, notebook tab:active button.destructive-action image{
+	-gtk-icon-shadow: none ;
+	color: mix(@text_color,@warning_color,0.5);
+}
+
+
+
+revealer button:disabled.down,revealer button:disabled.up,
+popover button:disabled.down,popover button:disabled.up,
+list button:disabled.down, list row:selected button:disabled.down, list button:disabled.up, list row:selected button:disabled.up,
+
+revealer check:disabled, revealer radio:disabled,
+popover check:disabled, popover radio:disabled, 
+list check:disabled, list row:selected check:disabled, list radio:disabled, list row:selected radio:disabled,
+menu > menuitem:disabled > check, menu > menuitem:disabled > radio, 
+
+revealer button:disabled image,
+popover button:disabled image,
+list button:disabled image,list row:selected button:disabled image,
+notebook tab button:disabled image, notebook tab:checked button:disabled image, notebook tab:active button:disabled image,
+
+revealer modelbutton:disabled image,
+popover modelbutton:disabled image,
+list modelbutton:disabled image,list row:selected modelbutton:disabled image,
+
+revealer arrow:disabled,
+popover arrow:disabled,
+list arrow:disabled{
+	color: mix(@menu_color,@text_color,0.2);
+}
+revealer button.suggested-action:disabled image,
+popover button.suggested-action:disabled image,
+list button.suggested-action:disabled image, list row:selected button.suggested-action:disabled image,
+notebook tab button.suggested-action:disabled image, notebook tab:checked button.suggested-action:disabled image, notebook tab:active button.suggested-action:disabled image{
+	color: mix(@menu_color,@good_color,0.2);
+}
+revealer button.destructive-action:disabled image,
+popover button.destructive-action:disabled image,
+list button.destructive-action:disabled image, list row:selected button.destructive-action:disabled image,
+notebook tab button.destructive-action:disabled image, notebook tab:checked button.destructive-action:disabled image, notebook tab:active button.destructive-action:disabled image{
+	color: mix(@menu_color,@warning_color,0.2);
+}
+
+
+
+revealer button:checked.down,revealer button:checked.up,
+popover button:checked.down,popover button:checked.up,
+list button:checked.down, list row:selected button:checked.down, list button:checked.up, list row:selected button:checked.up,
+
+revealer check:checked, revealer radio:checked,
+popover check:checked, popover radio:checked, 
+list check:checked, list row:selected check:checked, list radio:checked, list row:selected radio:checked,
+menu > menuitem > check:checked, menu > menuitem > radio:checked, 
+
+revealer button:checked image,
+popover button:checked image,
+list button:checked image, list row:selected button:checked image,
+notebook tab button:checked image, notebook tab:checked button:checked image, notebook tab:active button:checked image,
+
+revealer modelbutton:checked image,
+popover modelbutton:checked image,
+list modelbutton:checked image, list row:selected modelbutton:checked image,
+
+revealer arrow:checked,
+popover arrow:checked,
+list arrow:checked{
+	color: @menu_color;
+}
+revealer button.suggested-action:checked image,
+popover button.suggested-action:checked image,
+list button.suggested-action:checked image, list row:selected button.suggested-action:checked image,
+notebook tab button.suggested-action:checked image, notebook tab:checked button.suggested-action:checked image, notebook tab:active button.suggested-action:checked image{
+	color: mix(@menu_color,@good_color,0.2);
+}
+revealer button.destructive-action:checked image,
+popover button.destructive-action:checked image,
+list button.destructive-action:checked image, list row:selected button.destructive-action:checked image,
+notebook tab button.destructive-action:checked image, notebook tab:checked button.destructive-action:checked image, notebook tab:active button.destructive-action:checked image{
+	color: mix(@menu_color,@warning_color,0.2);
+}
+
+
+revealer button:active.down,revealer button:active.up,
+popover button:active.down,popover button:active.up,
+list button:active.down, list row:selected button:active.down, list button:active.up, list row:selected button:active.up,
+
+revealer check:active, revealer radio:active,
+popover check:active, popover radio:active, 
+list check:active, list row:selected check:active, list radio:active, list row:selected radio:active,
+
+revealer button:active image,
+popover button:active image,
+list button:active image, list row:selected button:active image,
+notebook tab button:active image, notebook tab:checked button:active image, notebook tab:active button:active image,
+
+revealer modelbutton:active image,
+popover modelbutton:active image,
+list modelbutton:active image, list row:selected modelbutton:active image,
+
+revealer arrow:active,
+popover arrow:active,
+list arrow:active{
+	color: @menu_color;
+}
+revealer button.suggested-action:active image,
+popover button.suggested-action:active image,
+list button.suggested-action:active image, list row:selected button.suggested-action:active image,
+notebook tab button.suggested-action:active image, notebook tab:checked button.suggested-action:active image, notebook tab:active button.suggested-action:active image{
+	color: mix(@menu_color,@good_color,0.2);
+}
+revealer button.destructive-action:active image,
+popover button.destructive-action:active image,
+list button.destructive-action:active image, list row:selected button.destructive-action:active image,
+notebook tab button.destructive-action:active image, notebook tab:checked button.destructive-action:active image, notebook tab:active button.destructive-action:active image{
+	color: mix(@menu_color,@warning_color,0.2);
+}
+
+
+revealer button:indeterminate.down,revealer button:indeterminate.up,
+popover button:indeterminate.down,popover button:indeterminate.up,
+list button:indeterminate.down, list row:selected button:indeterminate.down,list button:indeterminate.up, list row:selected button:indeterminate.up,
+
+revealer check:indeterminate, revealer radio:indeterminate,
+popover check:indeterminate, popover radio:indeterminate, 
+list check:indeterminate, list row:selected check:indeterminate, list radio:indeterminate, list row:selected radio:indeterminate,
+menu > menuitem > check:indeterminate, menu > menuitem > radio:indeterminate, 
+
+revealer button:indeterminate image,
+popover button:indeterminate image,
+list button:indeterminate image, list row:selected button:indeterminate image, 
+notebook tab button:indeterminate image,notebook tab:checked button:indeterminate image,notebook tab:active button:indeterminate image,
+
+revealer modelbutton:indeterminate image,
+popover modelbutton:indeterminate image,
+list modelbutton:indeterminate image, list row:selected modelbutton:indeterminate image, 
+
+revealer arrow:indeterminate,
+popover arrow:indeterminate,
+list arrow:indeterminate{
+	color: transparent;
+}
+revealer button.suggested-action:indeterminate image,
+popover button.suggested-action:indeterminate image,
+list button.suggested-action:indeterminate image, list row:selected button.suggested-action:indeterminate image,
+notebook tab button.suggested-action:indeterminate image, notebook tab:checked button.suggested-action:indeterminate image, notebook tab:active button.suggested-action:indeterminate image{
+	color: transparent;
+}
+revealer button.destructive-action:indeterminate image,
+popover button.destructive-action:indeterminate image,
+list button.destructive-action:indeterminate image, list row:selected button.destructive-action:indeterminate image,
+notebook tab button.destructive-action:indeterminate image, notebook tab:checked button.destructive-action:indeterminate image, notebook tab:active button.destructive-action:indeterminate image{
+	color: transparent;
+}
 
 
 
@@ -402,8 +543,8 @@ treeview button image{
 
 
 spinner{ /* inactive stat is the normal state */
-	color: @fg_item_color;
-	-gtk-icon-shadow: 0em 0em 0.2em @fg_item_color;
+	color: @active_label_color;
+	-gtk-icon-shadow: 0em 0em 0.2em @active_label_color;
 	-gtk-icon-effect: dim;
 }
 
@@ -413,7 +554,7 @@ spinner:checked {
 }
 
 spinner:disabled{ 
-	color: @disabled_fg_item_color;
+	color: @disabled_label_color;
 	-gtk-icon-shadow: none ;
 	animation: none ;
 }
@@ -460,8 +601,4 @@ calendar:selected spinner,
 treeview:selected spinner{
 	color: @menu_color;
 }
-
-
-
-
 

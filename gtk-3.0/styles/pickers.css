@@ -6,22 +6,11 @@ button.color,
 button.font,
 button.file,
 button.combo{  /* inclu les bouton a coter des entry */
-	margin: 0.3em;
-	border-radius: 0em;
-	border-width: 0.1em;
-	border-style: solid;
-
-   background-color: @entry_color;
-	border-color: @fg_item_color;
-	box-shadow: none ;
-}
-
-button:disabled.lock,
-button:disabled.color,
-button:disabled.font,
-button:disabled.file,
-button:disabled.combo{
-	border-color: @disabled_fg_item_color;
+	border-width: 0.4em;
+	border-style: ridge;
+	border-color: alpha(shade(@panel_color,0.7),0.7);
+	background-color: @menu_color;
+	box-shadow: inset 0em 0em 0.3em @idle_menu_color;
 }
 
 
@@ -34,7 +23,7 @@ button.lock stack {
 	border-radius:  0em;
 
 	box-shadow: none;
-	background-color: transparent;
+	background-color: @menu_color;
 	padding: 0.2em;
 }
 
@@ -49,4 +38,32 @@ combobox arrow{
 }
 
 
+
+/*
+───────── sub  entries  ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+list > row button.lock, popover button.lock, revealer button.lock,
+list > row button.color, popover button.color, revealer button.color,
+list > row button.font, popover button.font, revealer button.font,
+list > row button.file, popover button.file, revealer button.file,
+list > row button.combo, popover button.combo, revealer button.combo{
+	margin: 0.3em;
+	border-radius: 0em;
+	border-width: 0.1em;
+	border-style: solid;
+
+	background-clip: border-box;
+
+   background-color: @menu_color;
+	border-color: @text_color;
+	box-shadow: none ;
+}
+list > row button:disabled.lock, popover button:disabled.lock, revealer button:disabled.lock,
+list > row button:disabled.color, popover button:disabled.color, revealer button:disabled.color,
+list > row button:disabled.font, popover button:disabled.font, revealer button:disabled.font,
+list > row button:disabled.file, popover button:disabled.file, revealer button:disabled.file,
+list > row button:disabled.combo, popover button:disabled.combo, revealer button:disabled.combo{
+	border-color: mix(@menu_color,@text_color,0.2);
+}
 
