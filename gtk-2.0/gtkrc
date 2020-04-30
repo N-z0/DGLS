@@ -1,0 +1,290 @@
+### Authors: syslog@laposte.net
+### Description: gtk2.0 theme
+
+
+### Nom du thème GTK
+gtk-theme-name="DGLS"
+
+### Nom du pack d'icônes 
+### The name of the icon theme can be found in the index.theme file in the theme folder (probably ~/.icons or /usr/share/icons). 
+gtk-icon-theme-name="AwOken"
+gtk-icon-theme-name="HighContrast"
+
+### Nom et taille de la police de caractères utilisée dans l'interface
+gtk-font-name="Bandal 10"
+### antialiasing sur la police de caractères
+gtk-xft-antialias=1
+### utilisation du hinting (Ajustement des sous-pixels)
+gtk-xft-hinting=0
+### Méthode du hinting à utiliser
+### hintnone : Aucun
+### hintslight : Léger
+### hintmedium : Moyen
+### hintfull : Complet
+gtk-xft-hintstyle="hintnone"
+### Géométrie du hinting
+### none, rgb, bgr, vrgb, vbgr
+gtk-xft-rgba="none"
+
+###  curseur de souris
+### this is not related to gtk, but you can change the mouse cursors. 
+### A list of available cursor sets can be seen at kdelook.
+### Change the Inherits line in default/index.theme to one of the themes listed in /usr/share/cursors/ or similar. 
+### You can also use ~/.Xdefaults file as well. 
+gtk-cursor-theme-name="Golden Pointo"
+gtk-cursor-theme-size=3 # (0 correspond à la taille par défaut)
+
+# Style de la barre d'outils
+# gtk.TOOLBAR_ICONS : N'affiche que les icônes
+# gtk.TOOLBAR_TEXT : N'affiche que le texte
+# gtk.TOOLBAR_BOTH : Affiche le texte en dessous des icônes
+# gtk.TOOLBAR_BOTH_HORIZ : Affiche le texte à droite des icônes
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+# Taille des icônes de la barre d'outils
+# gtk.ICON_SIZE_MENU
+# gtk.ICON_SIZE_SMALL_TOOLBAR
+# gtk.ICON_SIZE_LARGE_TOOLBAR
+# gtk.ICON_SIZE_BUTTON
+# gtk.ICON_SIZE_DND
+# gtk.ICON_SIZE_DIALOG
+gtk-toolbar-icon-size=GTK_ICON_SIZE_SMALL_TOOLBAR
+
+# Permettre d'afficher une image dans un bouton
+gtk-button-images=1
+
+### affichage des images dans les menu
+### (cest moins rapide sans les icons car il faut lire le text)
+gtk-menu-images=1
+
+# Activer les notifications sonor
+gtk-enable-event-sounds=1
+# Permettre d'envoyer une notification sonor lors des actions de l'utilisateur
+gtk-enable-input-feedback-sounds=0
+
+
+
+###Default colors in GNOME
+### there is a set of eight symbolic colors, that can be set by the gnome-appearance-properties.
+### So if you want your theme to work well with a standard GNOME installation, you may want to stick to these colors. 
+### These map almost directly to the GTK+ colors.
+# fg_color #The base for the foreground colors.
+# bg_color #Color to generate the background colors from.
+#base_color # The base color.
+#text_color # The text color in input widgets.
+# selected_bg_color #Color for the background of selected text.
+#selected_fg_color #Color of selected text.
+# tooltip_bg_color #Background color of tooltips.
+#tooltip_fg_color #Text color for text in tooltips.
+### Any other colors will not be changable by the user from the gnome-appearance-properties.
+### They can of course still be set using for example the gconf-editor. 
+#1b1b1b #(0.1,0.1,0.1)
+#e6e6e6 #(0.9,0.9,0.9)
+gtk_color_scheme = "visited_weblink_color: #fa9935"		### = 	
+gtk_color_scheme = "weblink_color: #fac996"		### = 
+gtk_color_scheme = "cursor_color: #FEc996"		### = 
+gtk_color_scheme = "secondary_cursor_color: #fa99FE"	### = 	
+###
+gtk_color_scheme = "background_color: #8F8275"	### = 143,130,117
+gtk_color_scheme = "light_color: #808080"	### = 
+gtk_color_scheme = "dark_color: #404040"	### = 
+gtk_color_scheme = "text_color: #0E0D0B"	### = 14,13,11
+gtk_color_scheme = "edit_text_color: #1C1A16"	### = 28,26,22
+gtk_color_scheme = "edit_background_color: #FAE3CC"	### =  250,227,204
+###
+#gtk_color_scheme = "background_color: #606060"
+#gtk_color_scheme = "light_color: #808080"
+#gtk_color_scheme = "dark_color: #404040"
+#gtk_color_scheme = "text_color: #E0E0E0"	### = blanc
+#gtk_color_scheme = "edit_text_color: #F0F0F0"
+#gtk_color_scheme = "edit_background_color: #202020"
+
+
+
+### ENGINES:
+### Clearlooks, le thème GNOME par défaut, basé sur Bluecurve ;
+### Crux, anciennement connu sous le nom de moteur Eazel ;
+### High contrast, qui est utilisé par certains thèmes favorisant l'accessibilité ;
+### Industrial, le fameux moteur de Novell (autrefois appelé Ximian) ;
+### thinice ;LighthouseBlue, un autre moteur basé sur Bluecurve ;
+### "glide" ? ;Metal, qui donne un visuel métallique ;
+### Mist, un moteur avec peu de relief et très performant ;
+### Redmond95, qui fournit un visual proche de celui de Windows ;
+### ThinIce.
+### Aurora refers to the natural light displays in the sky in polar regions. This
+### CleanIce
+### Magic Chicken is a theme which borrows much in terms of looks from the default Gtk+ 2.x theme, as well as from ThinIce and other funky themes.
+### Murrine » est un terme italien, renvoyant au travail des souffleurs de verre vénitiens. Son moteur est basé sur Cairo et il est bien plus rapide que « clearlooks-cairo » ou « ubuntulooks ».
+### Nodoka The engine behind the new default theme for Fedora, Nodoka is inspired by such themes engines as Clearlooks and Murrine.  It features smooth,subtle gradients and rounded widgets.
+### pixmap ;pixbuf
+### Ubuntulooks is a modern-looking engine for GTK+, based on Clearlooks. It features elements of various popular themes, blended together to produce a theme that is easy on the eyes and visually pleasing.
+### adwaita ,Wonderland original Bluecurve engine from Red Hat's artwork package.
+### xfce #engine allowing users to apply various GTK2.0 themes to Xfce.
+###
+### GTK3 Oxygen-Gtk is a port of the Oxygen widget style to GTK+. It ensures visual consistency between GTK+ and Qt-based applications running under KDE.
+### GTK3 xfce This package contains a theme engine allowing users to apply various GTK3.0 themes to Xfce.
+
+#gtk-icon-sizes = "mini-commander-icon=32,32:print-manager=32,32:panel-button=32,32:gtk-dnd=32,32:gtk-menu=16,16:panel-menu=22,22:gtk-large-toolbar=16,16:gtk-small-toolbar=16,16:gtk-button=16,16:gtk-dialog=32,32"
+
+#"black"	Read-Write	A gtk.gdk.Color that is used for the black color.
+#"white"	Read-Write	A gtk.gdk.Color that is used for the white color.
+#"black_gc"	Read-Write	A graphics context (gtk.gdk.GC) for drawing using the black color.
+#"white_gc"	Read-Write	A graphics context (gtk.gdk.GC) for drawing using the white color.
+#"light"	Read	An array of gtk.gdk.Colors to be used for the light colors in each widget state. The light colors are slightly lighter than the bg colors and used for creating shadows.
+#"dark"	Read	An array of gtk.gdk.Colors to be used for the dark colors in each widget state. The dark colors are slightly darker than the bg colors and used for creating shadows.
+#"mid"	Read	An array of gtk.gdk.Colors to be used for the mid colors (between light and dark) in each widget state
+#"text_aa"	Read	An array of gtk.gdk.Colors to be used for the anti-aliased text colors in each widget state.
+
+#"name"	Read-Write	Name of the style.
+#"font_desc"	Read	A pango.FontDescription used as the default text font.
+#"fg_gc"	Read	An array of graphics contexts (gtk.gdk.GC) for drawing using the fg colors.
+#"bg_gc"	Read	An array of graphics contexts (gtk.gdk.GC) for drawing using the bg colors.
+#"light_gc"	Read	An array of graphics contexts (gtk.gdk.GC) for drawing using the light colors.
+#"dark_gc"	Read	An array of graphics contexts (gtk.gdk.GC) for drawing using the dark colors.
+#"mid_gc"	Read	An array of graphics contexts (gtk.gdk.GC) for drawing using the mid colors.
+#"text_gc"	Read	An array of graphics contexts (gtk.gdk.GC) for drawing using the text colors.
+#"base_gc"	Read	An array of graphics contexts (gtk.gdk.GC) for drawing using the base colors.
+#"text_aa_gc"	Read	An array of graphics contexts (gtk.gdk.GC) for drawing using the anti-aliased text colors.
+
+
+
+
+
+
+
+
+style "default-style"
+{
+	GtkWidget::visited-link-color = @visited_weblink_color #Color of visited Weblinks	 	
+	GtkWidget::link-color = @weblink_color # Color of unvisited Weblinks 
+	
+	GtkWidget::focus-line-width = 1 #Width, in pixels, of the focus indicator line
+	#GtkWidget::focus-line-pattern = "\1\1" # Dash pattern used to draw the focus indicator
+	GtkWidget::focus-padding = 3 # Width, in pixels, between focus indicator and the widget 'box'
+	GtkWidget::interior-focus = 1 # true/false draw the focus indicator inside widgets , inside sinon la size du bouton aui a le focus est reduite.
+
+	GtkWidget::separator-height = 9 #The height of separators if "wide-separators" is TRUE
+	#GtkWidget::separator-width = 9 #The width of separators if wide-separators is TRUE
+	GtkWidget::wide-separators = 0 # true/false Whether separators have configurable width and should be drawn using a box instead of a line
+	
+	GtkWidget::cursor-aspect-ratio = 0.1 #Aspect ratio with which to draw insertion cursor
+	#GtkWidget::cursor-color = @cursor_color #Color with which to draw insertion cursor
+	#GtkWidget::secondary-cursor-color = @secondary_cursor_color #Color with which to draw the secondary insertion cursor when editing mixed right-to-left and left-to-right text
+
+	#GtkWidget::scroll-arrow-hlength = 9#The length of horizontal scroll arrows
+	#GtkWidget::scroll-arrow-vlength = 9#The length of vertical scroll arrows 
+
+	#GtkWidget::draw-border = { 10, 10, 10, 10 } #Size of areas outside the widget's allocation to draw 
+
+	
+	
+	GtkToolbar::button-relief = GTK_RELIEF_NORMAL #Type of bevel around toolbar buttons GTK_RELIEF_NORMAL GTK_RELIEF_NONE
+	GtkToolbar::internal-padding = 3 #Amount of border space between the toolbar shadow and the buttons
+	#GtkToolbar::max-child-expand = G_MAXINT  #Maximum amount of space an expandable item will be given
+	GtkToolbar::shadow-type = GTK_SHADOW_IN #Style of bevel around the toolbar
+	GtkToolbar::space-size = 12 #Size of spacers
+	#GtkToolbar::space-style  = GTK_TOOLBAR_SPACE_EMPTY # Whether spacers are vertical lines or just blank GTK_TOOLBAR_SPACE_EMPTY GTK_TOOLBAR_SPACE_LINE
+	
+	
+	### a etudier
+	GtkStatusbar::shadow-type = GTK_SHADOW_IN # comme si la bar  avait ete appuyer
+	
+	GtkMenuBar::shadow-type = GTK_SHADOW_IN # comme si la bar  avait ete appuyer
+	GtkMenuBar::internal-padding = 3 # marge entre le text et les bords de la bar de menu
+	
+	GtkRange::slider-width = 16 #epesseur de tous les sliders/scrollers
+	
+	GtkSpinButton::shadow-type = GTK_SHADOW_IN
+		
+	#GtkButton::default_border         = {5, 5, 5, 5}
+	#GtkButton::default_outside_border = {0, 0 ,0 ,0}
+	
+	#GtkTextView
+	#GtkToolItemGroup
+	#GtkToolButton
+	#GtkTreeView::
+	#GtkScrollbar
+	#GtkScrolledWindow
+	#GtkSpinner
+	#GtkScale
+	#GtkProgressBar	
+	#GtkPaned
+	#GtkOptionMenu
+	#GtkNotebook
+	#GtkMessageDialog
+	#GtkMenuItem
+	#GtkMenu
+	#GtkInfoBar
+	#GtkIconView
+	#GtkExpander
+	#GtkEntry
+	#GtkDialog
+	#GtkComboBox
+	#GtkCheckMenuItem
+	#GtkCheckButton
+	#GtkButtonBox
+	#GtkAssistant
+	#GtkArrow
+	
+	###
+	
+	
+	### marge entre le text et le bord d'un bouton, ou l'epaisseur d'une ligne de separation
+	xthickness = 3
+	ythickness = 3
+	
+	# fg - Sets the foreground color of a widget.
+	fg[ACTIVE]        = @text_color # color when pressed
+	fg[INSENSITIVE]   = @text_color # disabled
+	fg[NORMAL]        = @text_color # Normal mode color
+	fg[PRELIGHT]      = @text_color # when mouse is hovering over it
+	fg[SELECTED]      = { 1.0, 0.0, 0.0 } # selected or highlighted
+
+	# bg - Sets the background color of a widgets.
+	bg[ACTIVE]        = @background_color # color when pressed
+	bg[INSENSITIVE]   = @background_color # disabled
+	bg[NORMAL]        = @background_color # Normal mode color
+	bg[PRELIGHT]      = @background_color # when mouse is hovering over it
+	bg[SELECTED]      = { 0.0, 1.0, 0.0 } # selected or highlighted
+
+	# text - Sets the foreground color for widgets that have editable text.
+	text[ACTIVE]      = { 0.0, 0.5, 0.0 } # color when pressed
+	text[INSENSITIVE] = { 1.0, 0.0, 1.0 } # disabled
+	text[NORMAL]      = @edit_text_color # Normal mode color
+	text[PRELIGHT]    = @edit_text_color # when mouse is hovering over it
+	text[SELECTED]    = { 0.0, 0.75, 0.0 } # selected or highlighted
+
+	# base - Sets the background color for widgets that have editable text. 
+	base[ACTIVE]      = @edit_background_color # color when pressed
+	base[INSENSITIVE] = { 0.0, 0.0, 1.0 } # disabled
+	base[NORMAL]      = @edit_background_color # Normal mode color
+	base[PRELIGHT]    = @edit_background_color # when mouse is hovering over it
+	base[SELECTED]    = { 0.0, 0.25, 0.0 } # selected or highlighted
+	
+	engine "redmond95" {}
+	#engine "nodoka" {toolbarstyle = 0}
+	#engine "murrine" {roundness = 2}
+	#engine "clearlooks" {hint = "spinbutton"}
+	#engine "industrial" {  hint = "use-hints"  }  # Set a hint to disable backward compatibility fallbacks.
+	#engine "mist" { }
+	#engine "xfce" {smooth_edge = true}
+	#engine "adwaita" { }
+	#engine "thinice" { }
+	#engine "mgicchikn" { }
+	#engine "cleanice" { }
+	#engine "aurora" { }
+	#engine "bluecurve" { }
+	#engine "pixmap" { }
+	#engine "ubuntulooks" { }
+	#engine "glide" { }
+	#engine "hcengine" { }
+	#engine "crux-engine" {  }
+}
+
+
+
+
+
+
+### This line applies the style "default-style" to every widget that is based on GtkWidget. 
+### As every widget is based on GtkWidget, it will be used everywhere...
+class "GtkWidget" style "default-style"
