@@ -31,6 +31,15 @@ Hard attempt to make a theme functional and coherent for softwares using GTK.
 	Reference Manual for the latest stable version of GTK+ 3.
 
 
+## 👀 See also:
+ - [clirico](https://github.com/N-z0/clirico)  
+	A set of clear monochromatic icons, matching with clear styles themes.
+ - [pointo](https://github.com/N-z0/pointo)  
+	A nice pointer for mouse cursor.
+ - [WambaX](https://github.com/N-z0/WambaX)  
+	A legacy style of fast and useful interface.
+	
+	
 ## 📜 History
  - The projet was initiate by [N-z0](mailto:syslog@laposte.net) in summer 2019.
 
