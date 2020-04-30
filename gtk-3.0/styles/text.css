@@ -1,0 +1,322 @@
+/*
+css
+text style
+2019
+*/
+
+
+
+/*
+─────────    font styles   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+/* style de font appliquer aux section containers panels */
+stacksidebar row label,
+stackswitcher button label,
+notebook tab label,
+frame > label,
+toolitemgroup > button label,
+expander title label{
+	font-weight: bold;
+	font-style: italic;
+	margin: 0.3em;
+}
+
+/* style de font appliquer aux boutons de menu et de popups */
+button.popup label,
+button.scale label,
+button.model label,
+menubar > menuitem > label{
+	font-style: italic;
+	margin: 0.2em;
+}
+
+/* style de font appliquer aux raccourci clavier de menu */
+menu menuitem accelerator{
+	font-style: italic;
+}
+
+
+
+/*
+─────────    labels of panels   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+label{ /* affect: expander title, radiobutton,checkbutton, frame title */
+	color: @fg_item_color;
+}
+
+label:disabled{
+	color: @disabled_fg_item_color;
+	text-shadow: none ;
+}
+
+/* web links */
+label link{
+	color: @link_label_color;
+}
+label link:visited{
+	color: @link_visited_label_color;
+}
+
+/* la selection de text nest pas faisable sur les buttons */
+label selection{
+	color: @bg_item_color;
+	background-color: @fg_item_color;
+}
+
+
+
+
+
+
+/*
+─────────   menu text style  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+menu > menuitem > label,
+menu > menuitem > cellview{ /* cellview for combo.button menu */
+	text-shadow: none ;
+	color: @fg_item_color;
+}
+
+menu > menuitem:disabled > label,
+menu > menuitem:disabled > cellview {
+	color: @disabled_fg_item_color;
+}
+
+menu > menuitem > label link{
+	color: @link_text_color;
+}
+menu > menuitem > label link:visited{
+	color: @link_visited_text_color;
+}
+
+menu > menuitem:hover > label,
+menu > menuitem:hover > cellview{ /* in menu only :hover is effective on not disabled menuitem */
+	color: @bg_item_color;
+}
+
+
+
+/*
+─────────   list text style  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+list label, /* there is some text not in row */
+stackswitcher button label,
+notebook tabs tab label{
+	text-shadow: none ;
+	color: @fg_item_color;
+}
+list label link{
+	color: @link_text_color;
+}
+list label link:visited{
+	color: @link_visited_text_color;
+}
+
+list label:disabled,
+stackswitcher button:disabled label,
+notebook tabs tab:disabled label {
+	color: @disabled_fg_item_color;
+}
+
+list > row:selected label,
+stackswitcher button:checked label, stackswitcher button:active label,
+notebook tab:checked label, notebook tab:active label {
+	color: @bg_item_color;
+}
+
+list label selection{ /* possible */
+	color: @bg_item_color;
+	background-color: @fg_item_color;
+}
+
+
+
+/*
+─────────   entries text style  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+button.lock label,
+/* button.color label, */
+button.font label,
+button.file label,
+button.combo,  /* no label with button.combo */
+
+entry, /* should have label but not have label */
+spinbutton, /* because spinbutton includ a not affected entry widget */
+textview text,  /* no label */
+
+iconview, /* no label */
+calendar,  /* no label */
+treeview{ /* no label */
+	text-shadow: none ;
+	color: @fg_item_color;
+}
+
+
+button:disabled.lock label,
+/* button:disabled.color label, */
+button:disabled.font label,
+button:disabled.file label,
+button:disabled.combo,
+
+entry.read-only, entry:disabled, /*  should have label but not have label */
+spinbutton.read-only,spinbutton:disabled,
+textview:disabled text,
+
+iconview:disabled, /* no label */
+calendar:disabled,  /* no label */
+treeview:disabled{ /* no label */ 
+	color: @disabled_fg_item_color;
+}
+
+
+/* not selectable if disabled  */
+entry selection,
+spinbutton selection, 
+textview text selection{
+	color: @bg_item_color;
+	background-color: @fg_item_color;
+}
+iconview:selected,
+calendar:selected,
+treeview:selected{
+	color: @bg_item_color;
+}
+
+
+
+
+/*
+─────────    labels of buttons   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+menubar > menuitem > label,/* concern only menubar buttons, but not sub menus */
+
+list > row:selected modelbutton label,
+notebook tabs tab:checked modelbutton label, notebook tabs tab:active modelbutton label,
+modelbutton label,
+list > row button label,
+notebook tabs tab:checked button label, notebook tabs tab:active button label,
+button label { /* button arrow concern entries combo button */
+	color: @fg_item_color;
+}
+/* web links */
+button.link label{
+	color: @link_label_color;
+}
+button.link:visited label{
+	color: @link_visited_label_color;
+}
+button.suggested-action label{
+	color: mix(@text_color,@good_color,0.5);
+}
+button.destructive-action label{
+	color: mix(@text_color,@warning_color,0.5);
+}
+
+
+menubar > menuitem:disabled > label, /* concern menu bar buttons */
+list > row:selected modelbutton:disabled label,
+notebook tabs tab:checked modelbutton:disabled label, notebook tabs tab:active modelbutton:disabled label,
+modelbutton:disabled label,
+list > row button:disabled label,
+notebook tabs tab:checked button:disabled label, notebook tabs tab:active button:disabled label,
+button:disabled label{
+	color: red;
+}
+button.suggested-action:disabled label{
+	color: mix(@menu_color,@good_color,0.2);
+}
+button.destructive-action:disabled label{
+	color: mix(@menu_color,@warning_color,0.2);
+}
+
+
+menubar > menuitem:hover > label,
+
+button:active label,button:checked label,
+list > row:selected button:active label, list > row:selected button:checked label, /* useless but coherent */
+notebook tabs tab:checked button:active label, notebook tabs tab:checked button:checked label, /* useless but coherent */
+notebook tabs tab:active button:active label, notebook tabs tab:active button:checked label, /* useless but coherent */
+
+modelbutton:active label,modelbutton:checked label,
+list > row:selected modelbutton:active label, list > row:selected modelbutton:checked label, /* useless but coherent */
+notebook tabs tab:checked modelbutton:active label, notebook tabs tab:checked modelbutton:checked label, /* useless but coherent */
+notebook tabs tab:active modelbutton:active label, notebook tabs tab:active modelbutton:checked label, /* useless but coherent */
+
+button.link:active,button.link:checked,
+button.suggested-action:active label,button.suggested-action:checked label,
+button.destructive-action:active label,button.destructive-action:checked label{
+	color: @bg_item_color;
+}
+
+
+menubar > menuitem:indeterminate > label,
+button:indeterminate label,
+list > row:selected button:indeterminate label, /* useless but coherent */
+notebook tabs tab:checked button:indeterminate label, notebook tabs tab:active button:indeterminate label, /* useless but coherent */
+modelbutton:indeterminate label,
+list > row:selected modelbutton:indeterminate label, /* useless but coherent */
+notebook tabs tab:checked modelbutton:indeterminate label, notebook tabs tab:active modelbutton:indeterminate label, /* useless but coherent */
+button.suggested-action:indeterminate label,
+button.destructive-action:indeterminate label{
+	color: @bg_item_color;
+}
+
+
+
+
+/*
+──────   scale  text ─────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+/* not necessary because previoulsy globaly set */
+scale marks mark label{
+ 	text-shadow: 0em 0em 0.2em @active_label_color;
+	color: @active_label_color;
+}
+revealer scale marks mark label,
+popover scale marks mark label, 
+list scale marks mark label {	
+	text-shadow: none ;
+	color: @text_color
+}
+list > row:selected scale marks mark label{
+	color: @menu_color;
+}
+
+
+/* this part should be more necessary but not sure because not tested */
+scale:disabled marks mark label{ /* normal stat is the inactive disabled state */
+	color: @disabled_label_color;
+	text-shadow: none ;
+}
+revealer scale:disabled marks mark label,
+popover scale:disabled marks mark label,
+list scale:disabled marks mark label{
+	color: mix(@menu_color,@text_color,0.2);
+}
+
+
+
+
+scale value,
+progressbar text{
+	text-shadow: none ;
+	color: @text_color
+}
+
+scale:disabled value,
+progressbar:disabled text{
+	color: mix(@menu_color,@text_color,0.2);
+}
+
+list > row:selected scale value,
+list > row:selected progressbar text{
+	color: @menu_color;
+}
+

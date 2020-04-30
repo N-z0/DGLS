@@ -1,0 +1,122 @@
+/*  listers boxes with inset frames,
+interaction possible avec le contenu via keyboard 
+*/
+
+
+
+/* global entries frames */
+list,
+stacksidebar list,
+stackswitcher,
+notebook tabs{
+	border-width: 0em;
+	border-color: transparent;
+	padding: 0.15em;
+	margin: 0.3em;
+
+	background-color: @list_color;
+}
+
+/* ditinct all kind of stack switchers by rounded borders */
+stacksidebar list,
+stackswitcher,
+notebook tabs{
+	border-radius: 1em;
+}
+
+
+/* list box 
+list
+╰── row[.activatable]
+*/
+
+/* Theme for notebook  buttons 
+notebook
+├── header.top
+│   ├── [<action widget>]
+│   ├── tabs
+│   │   ├── [arrow]
+│   │   ├── tab
+│   │   │   ╰── <tab label>
+┊   ┊   ┊
+│   │   ├── tab[.reorderable-page]
+│   │   │   ╰── <tab label>
+│   │   ╰── [arrow]
+│   ╰── [<action widget>]
+│
+╰── stack
+    ├── <child>
+    ┊
+    ╰── <child>
+
+firefox utilise un notebook pour afficher ses onglets
+
+'notebook header' et 'notebook header tabs' n'ont pas de borders
+*/
+
+/* stacksidebar se compose de scrolledwindow viewport et d'une list 
+GtkStackSidebar has a single CSS node with name stacksidebar and style class .sidebar.
+When circumstances require it, GtkStackSidebar adds the .needs-attention style class to the widgets representing the stack pages.
+*/
+
+/* 
+GtkStackSwitcher has a single CSS node named stackswitcher and style class .stack-switcher.
+When circumstances require it, GtkStackSwitcher adds the .needs-attention style class to the widgets representing the stack pages.
+*/
+
+
+
+
+/*
+──────── shapes
+*/
+
+
+list row,
+stacksidebar list row,
+stackswitcher button,
+notebook tabs tab,notebook tabs arrow {
+	border-width: 0em;
+	border-radius: 0em;
+
+	margin:  0.15em;
+	padding: 0.15em; /* pour avoir une petite marge entre le contenu */
+
+	transition: none;
+
+	background-color: @row_color;
+}
+stacksidebar list row,
+stackswitcher button,
+notebook tabs tab,notebook tabs arrow {
+	border-radius: 1em;
+}
+list row.activatable,
+stacksidebar list row,
+stackswitcher button,
+notebook tabs tab,notebook tabs arrow {
+	box-shadow: inset 0em 0em 0.5em @fg_item_color ;
+}
+
+
+/* onglet needs attention
+effet visible sur le stackswitcher page3 de gtk3-widget-factory ,(declencher par un bouton de la bage2) */
+stacksidebar list row.needs-attention,
+stackswitcher button.needs-attention {
+   background-color: mix(@warning_color,@menu_color,0.5);
+}
+
+
+/* selected */
+list row:selected,
+stacksidebar list row:selected,
+stackswitcher button:checked, stackswitcher button:active,
+notebook tabs tab:checked,notebook tabs tab:active,notebook tabs arrow:checked,notebook tabs arrow:active{
+	background-color: @fg_item_color;
+	box-shadow: inset 0em 0em 1em @list_color;
+}
+
+
+
+
+

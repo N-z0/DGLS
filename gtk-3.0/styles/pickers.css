@@ -1,0 +1,52 @@
+/* choosers buttons (button combo)*/
+
+
+button.lock, /* bouton qui deverouille ou verouille, note(ce n'est pas un toggle) */
+button.color,
+button.font,
+button.file,
+button.combo{  /* inclu les bouton a coter des entry */
+	margin: 0.3em;
+	border-radius: 0em;
+	border-width: 0.1em;
+	border-style: solid;
+
+   background-color: @entry_color;
+	border-color: @fg_item_color;
+	box-shadow: none ;
+}
+
+button:disabled.lock,
+button:disabled.color,
+button:disabled.font,
+button:disabled.file,
+button:disabled.combo{
+	border-color: @disabled_fg_item_color;
+}
+
+
+
+/* 
+le bouton de lock contien un stack... 
+cette bizarie oblige a contrer le setting de stack qui est fait dans frame.css */
+button.lock stack {
+	border-width:  0em;
+	border-radius:  0em;
+
+	box-shadow: none;
+	background-color: transparent;
+	padding: 0.2em;
+}
+
+
+
+
+
+/* Make arrows transparent as the arrows are currently imbedded to display dropdown box. */
+combobox arrow{
+   min-width: 0em;
+   min-height: 0em;
+}
+
+
+

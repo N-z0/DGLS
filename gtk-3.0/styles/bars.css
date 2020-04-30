@@ -1,0 +1,103 @@
+/* Style barS  */
+
+
+headerbar,menubar,toolbar,statusbar,actionbar,searchbar,infobar{
+	border-radius:  0em;
+	background-color: @bar_color;
+	box-shadow: inset 0em 0em 0.3em @bar_shadow_color;
+	padding: 0em;
+	margin: 0em;
+}
+
+
+/* avec les app Gnome la menubar et la toolbar sont merge dans cette nouvelle bar */
+headerbar {
+	background-color: @panel_color; /* headerbar is not put on the window background, so i prefer to change his color */
+}
+/* can add typical window frame controls, such as minimize, maximize and close buttons. */
+headerbar.titlebar {
+}
+
+
+
+
+/* bar de bouton traditionel, avec: file edit view help */
+menubar {
+}
+menubar > menuitem{
+}
+
+
+
+
+/* chois de bouton icon ,donnant acess rapide a des fonction de la menubar */
+toolbar {
+}
+toolbar:disabled {
+}
+
+toolbar.primary-toolbar {
+}
+
+/* Floating bar */
+.floating-bar {
+}
+.floating-bar.top {
+}
+.floating-bar.bottom {
+}
+.floating-bar.left {
+}
+.floating-bar.right {
+}
+
+
+
+
+/* bar souvent en bas d'ecran, donnant des info  */
+statusbar {
+}
+
+
+
+
+
+
+
+
+/* overlay bars  */
+
+actionbar {
+}
+
+searchbar{
+}
+
+
+/*  bar  donnant des info et pouvant contenir des boutons */
+infobar{
+	background-color: alpha(@info_bar_color,0.3);
+	box-shadow: inset 0em 0em 0.3em @info_bar_shadow_color;
+}
+infobar.question{
+}
+infobar.info {
+}
+infobar.warning {
+	background-color: alpha(@warning_bar_color,0.3);
+	box-shadow: inset 0em 0em 0.3em @warning_bar_shadow_color;
+}
+infobar.error {
+	background-color:  alpha(@error_bar_color,0.3);
+	box-shadow: inset 0em 0em 0.3em @error_bar_shadow_color;
+}
+
+
+
+
+
+/*
+───────── sub ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+

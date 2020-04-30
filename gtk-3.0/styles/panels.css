@@ -1,0 +1,46 @@
+/*  theme  windows
+
+GtkWindow
+╰── GtkDialog
+    ╰── GtkMessageDialog
+
+la class .background n'est pas assez documenter,
+mais je suppose quelle signal la fenetre en arriere plan, parent de toutes les autres (lorsquil y en a plusieurs)
+*/
+window,
+GladeWindow {
+	background-color: @panel_color;
+}
+
+/* sous fenetre specialiser, en general plus petite */
+dialog,
+messagedialog,
+printdialog,
+assistant {
+	background-color: @panel_color;
+}
+
+
+
+
+
+
+
+
+/* use as a background of menuS */
+window.popup {
+	background-color: transparent;
+}
+/* special windows (no effects?) */
+window.tooltip {
+	background-color: blue;
+}
+.window-frame, .window-frame:backdrop {
+	margin: 3px;
+	padding: 3px;
+	border-width: 3px;
+   border: solid;
+   background-color: yellow;
+	border-color: blue;
+}
+

@@ -1,0 +1,32 @@
+/*  table entry with inset frames,
+interaction possible avec le contenu via keyboard 
+
+treeview.view
+├── header
+│   ├── <column header>
+┊   ┊
+│   ╰── <column header>
+│
+╰── [rubberband]
+
+les bordures sont apliquer aux elements du tablau,mais pas a l'enssemble du cadre
+*/
+calendar,
+treeview{
+	border-width: 0em;
+
+	margin:  0.3em;
+	padding: 0em; /* pour avoir une petite marge entre le contenu */
+
+	background-color: @entry_color;
+	box-shadow: inset 0em 0em 0.3em @fg_item_color ;
+}
+
+calendar:selected,
+treeview:selected{
+	background-color: @fg_item_color;
+	box-shadow: inset 0em 0em 0.3em @entry_color;
+}
+
+
+

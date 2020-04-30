@@ -1,0 +1,73 @@
+/* 
+### author: syslog@laposte.net
+### name: WambaX
+### date: Oct 11, 2017
+### description: gtk3.0 theme
+*/
+
+
+
+/* general settings */
+* {
+	margin: 0em;
+	padding: 0em;
+
+	border-width: 0em;
+	border-radius: 0em;
+
+	outline-style: solid;
+	outline-color: transparent;
+	outline-width: 0.1em;
+	outline-offset: -0.1em;
+	-gtk-outline-radius: 0em;
+
+	font-weight: normal;
+	font-style: normal;
+	font-variant: normal;
+	font-stretch: normal;
+	font-size: 1em;
+ 	text-shadow: none;
+	
+	box-shadow: none;
+	background-color: transparent;
+	background-clip: border-box;
+
+	-gtk-icon-effect: dim;
+ 	-gtk-icon-shadow: none;
+	-gtk-icon-style: symbolic;
+
+	font-style: normal;
+}
+
+
+
+/* Import colors */
+@import url("colors.css");
+
+
+
+/* Import widgets */
+@import url("styles/panels.css");
+@import url("styles/bars.css");
+@import url("styles/screens.css");
+@import url("styles/arrangers.css");
+@import url("styles/tables.css");
+@import url("styles/listers.css");
+@import url("styles/popovers.css");
+@import url("styles/separators.css");
+
+@import url("styles/buttons.css");
+@import url("styles/checks.css");
+@import url("styles/pickers.css");
+@import url("styles/entries.css");
+@import url("styles/scalers.css");
+@import url("styles/dials.css");
+
+@import url("styles/text.css");
+@import url("styles/images.css");
+
+/*
+@import url("styles/hacks.css");
+@import url("styles/overshoots.css");
+*/
+

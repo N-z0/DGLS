@@ -1,0 +1,49 @@
+/*  entry boxes with inset frames,
+interaction possible avec le contenu via keyboard 
+
+entry[.read-only][.flat][.warning][.error]
+├── image.left
+├── image.right
+├── undershoot.left
+├── undershoot.right
+├── [selection]
+├── [progress[.pulse]]
+╰── [window.popup]
+
+textview.view
+├── border.top
+├── border.left
+├── text
+│   ╰── [selection]
+├── border.right
+├── border.bottom
+╰── [window.popup]
+*/
+
+/* je n'arrive pas a modifier les border de textview */
+textview {
+	padding: 0em;
+	margin:  0em;
+	border-width: 1em;
+   border: solid;
+}
+/* alors jutilise textview text */
+textview text,
+entry {
+	margin: 0.3em;
+	padding: 0.3em;
+
+	border-radius: 0em;
+	border-width: 0.1em;
+	border-style: solid;
+	border-color: @fg_item_color;
+
+   background-color: @entry_color;
+	box-shadow: none ;
+}
+
+
+entry.read-only, entry:disabled, textview:disabled text{
+	border-color: @disabled_fg_item_color;
+}
+

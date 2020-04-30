@@ -1,0 +1,83 @@
+
+/* 
+### Default GNOME colors
+### there is a set of eight symbolic colors, that can be set by the gnome-appearance-properties.
+### So if you want your theme to work well with a standard GNOME installation, you may want to stick to these colors. 
+### Any other colors will not be changable by the user from the gnome-appearance-properties.
+### They can of course still be set directly using for example the gconf-editor. 
+	fg_color # foreground color used for text and label button
+	bg_color # Color to generate the background colors of buttons.
+	base_color # used for document or text entry portions
+	text_color # The text color in input widgets.
+	selected_bg_color #Color for the background of selected text.
+	selected_fg_color #Color of selected text.
+	tooltip_bg_color #Background color of tooltips.
+	tooltip_fg_color #Text color for text in tooltips.
+
+### others misc colors used by gtk+ (infobar) 
+	other_fg_color
+	other_bg_color
+	question_fg_color
+	question_bg_color
+	info_fg_color
+	info_bg_color
+	warning_fg_color
+	warning_bg_color
+	error_fg_color
+	error_bg_color
+*/
+
+
+/* primary colors actually use */
+@define-color info_color blue; /* positive,level high,loading */
+@define-color good_color green;  /* positive,full,suggestion,ok,yes,loaded */
+@define-color warning_color yellow; /* caution,low*/
+@define-color error_color red; /* negative,no,bad,fail */ 
+
+@define-color window_color rgb(15%,10%,5%);
+@define-color item_color rgb(60%,75%,60%);
+
+
+
+@define-color panel_light_color shade(@window_color,1.5);
+@define-color panel_shade_color shade(@window_color,0.5);
+/* @define-color panel_dark_color shade(@window_color,0.1); */
+
+@define-color item_bright_color shade(@item_color,1.1);
+@define-color item_dark_color shade(@item_color,0.1);
+
+
+
+
+@define-color panel_color alpha(@window_color,1.0); 
+@define-color separator_color alpha(@panel_light_color,0.3); 
+@define-color screen_color alpha(@panel_shade_color,0.3);
+@define-color bar_color alpha(@panel_light_color,0.3);
+@define-color bar_shadow_color alpha(@panel_shade_color,0.3);
+@define-color list_color alpha(@item_dark_color,0.9);
+@define-color row_color alpha(@panel_light_color,0.3); 
+
+@define-color menu_color alpha(@panel_light_color,0.9);
+@define-color menu_shadow_color alpha(@panel_shade_color,0.9);
+@define-color menu_tab_color alpha(@panel_light_color,0.5); 
+
+@define-color entry_color alpha(@item_dark_color,0.9); /* used by dials and scrollers */
+
+/* @define-color item_glow_color alpha(@item_bright_color,0.5); */
+
+@define-color fg_item_color alpha(@item_bright_color,0.9);
+@define-color bg_item_color alpha(@item_dark_color,0.9);
+@define-color indeterminate_item_color mix(alpha(@item_dark_color,0.9),alpha(@item_bright_color,0.9),0.5);
+@define-color disabled_fg_item_color alpha(@item_bright_color,0.1);
+@define-color disabled_indeterminate_item_color mix(alpha(@item_dark_color,0.9),alpha(@item_bright_color,0.1),0.5);
+
+
+@define-color dial_info_color alpha(@info_color,0.5);
+@define-color dial_good_color alpha(@good_color,0.5);
+@define-color dial_warning_color alpha(@warning_color,0.5);
+
+@define-color switch_off_color alpha(@error_color,0.5);
+@define-color switch_on_color alpha(@good_color,0.5);
+@define-color disabled_switch_off_color alpha(@error_color,0.1);
+@define-color disabled_switch_on_color alpha(@good_color,0.1);
+

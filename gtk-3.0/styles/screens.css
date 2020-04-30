@@ -1,0 +1,20 @@
+
+/* screens effect,
+pour les contenu de zone cheangeant ou  ajustable scrollable
+peuvent contenir presque n'importe quel windget
+
+scrolledwindow n'est que le parent de l'association dun viewport(si l'item contenu le necessite) et de scrollbars
+*/
+
+stack,
+paned,
+viewport {
+	border-style: solid;
+	border-width: 0em;
+	border-radius:  0em;
+
+	background-color: @screen_color;
+	padding: 0.3em;
+	margin: 0.3em;
+}
+

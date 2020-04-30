@@ -1,0 +1,166 @@
+/* 
+buttons
+*/
+
+
+
+/* Common General settings
+ normal stat is unpressed 
+	border-style inset/outset ne donne pas de bon relustat donc jutilise le mode solid
+*/
+entry.combo~button.combo, /* le bouton a coter des entry doit etre comme un button normal , a la class .combo */
+menubar > menuitem,
+expander arrow,
+modelbutton,
+button{
+	margin: 0.3em;
+	padding: 0.2em; /* pour avoir une marge entre border et le contenu */
+
+	border-style: solid;
+	border-width: 0.1em;
+	border-radius: 1em;
+
+
+   background-color: @bg_item_color;
+	border-color: @fg_item_color;
+	box-shadow: none ;
+
+}
+
+/* pressed or toggeled  */
+entry.combo~button.combo:active,entry.combo~button.combo:checked,
+menubar > menuitem:active, menubar > menuitem:checked, menubar > menuitem:hover,
+expander arrow:active,expander arrow:checked,
+modelbutton:active,modelbutton:checked,
+button:active,button:checked{
+   background-color: @fg_item_color;
+	border-color: @bg_item_color;
+}
+
+/*  unknow state */
+entry.combo~button.combo:indeterminate, /* le bouton a coter des entry doit etre comme un button normal */
+menubar > menuitem:indeterminate,
+expander arrow:indeterminate,
+modelbutton:indeterminate,
+button:indeterminate{
+   background-color: @indeterminate_item_color;
+	border-color: transparent;
+}
+
+
+
+/*  disabled state */
+entry.combo~button.combo:disabled,
+menubar > menuitem:disabled,
+expander arrow:disabled,
+modelbutton:disabled,
+button:disabled{
+   background-color: @bg_item_color;
+	border-color: @disabled_fg_item_color;
+}
+
+entry.combo~button.combo:disabled:checked,
+menubar > menuitem:disabled:checked,
+expander arrow:disabled:checked,
+modelbutton:disabled:checked,
+button:disabled:checked{
+   background-color: @disabled_fg_item_color;
+	border-color: @bg_item_color;
+}
+
+entry.combo~button.combo:disabled:indeterminate,
+menubar > menuitem:disabled:indeterminate,
+expander arrow:disabled:indeterminate,
+modelbutton:disabled:indeterminate,
+button:disabled:indeterminate{
+   background-color: @disabled_indeterminate_item_color;
+	border-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+/* pour avoir une petite marge entre le contenu du bouton */
+entry.combo~button.combo.combo,
+expander arrow,
+button{
+}
+menubar > menuitem,
+toolitemgroup > button {
+}
+
+
+
+
+/* Actions */
+button.suggested-action {
+	background-color: alpha(shade(@good_color,1.1),0.5);
+}
+button:active.suggested-action,button:checked.suggested-action{
+	background-color: alpha(shade(@good_color,0.9),0.3);
+}
+button:indeterminate.suggested-action{
+	background-color: alpha(@good_color,0.3);
+}
+
+button.destructive-action {
+	background-color: alpha(@warning_color,0.3);
+}
+button:active.destructive-action,button:checked.destructive-action{
+	background-color: alpha(shade(@warning_color,0.9),0.3);
+}
+button:indeterminate.destructive-action{
+	background-color: alpha(@warning_color,0.3);
+}
+
+
+
+
+
+
+/* toggle button deployant un menu ,(devrait etre utiliser dans les bar de menu) */
+button.popup{}
+
+/* simple push button deployant un popup de scale (sound volum adjusteur) */
+button.scale {}
+
+
+/* GtkModelButton has a main CSS node with name modelbutton,
+ and a subnode, which will have the name check, radio or arrow,
+ depending on the role of the button and whether it has a menu name set.
+(Model buttons are used when popovers from a menu model with gtk_popover_new_from_model(); they can also be used manually in a GtkPopoverMenu.)
+
+je n'arrive pas a faire fonctionner ces bouton sur Glade, mais j'en ai trouver 2 sur gtk3-widget-factory.
+il semble que ca soit des buttons de menu popup 
+tout comme menuitem est un element de menu, modelbutton est un element de popover
+*/
+
+/*  Iconic model buttons 
+ bouton de menu popup, trouver sur la page2 de tk3-widget-factory.*/
+button.model {
+}
+
+/* conteneur de bouton sur toolbars 
+(no effect) */
+toolbutton,
+toolitem {
+}
+
+
+/* sans ca les bouton de scrollbar sont trop petit */
+scrollbar button{
+   min-width: 0.9em;
+   min-height: 0.9em;
+}
+
+/* le bouton a coter des entry doit etre comme un button normal 
+les entries ont 0.1em de marge a prendre en compte pour avoir un bouton carrer */
+entry.combo~button.combo arrow{
+   min-width: 1.2em; 
+}
+

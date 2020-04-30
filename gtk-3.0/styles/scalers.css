@@ -1,0 +1,259 @@
+
+
+/* bouton glisseur */
+slider {
+	border-radius: 1em;
+	border-style: solid;
+	border-color: @fg_item_color;
+	border-width: 0em;
+	
+	background-clip: border-box;
+	background-color: @bg_item_color;
+	box-shadow: none;
+	transition: none;
+
+	min-height: 0.6em;
+	min-width: 0.6em;
+}
+/* 
+le seul moyen de regler la size du switch widget  est de changer la size de son text
+et il faut que j'adapte la size de  tout les autres elements, car jutilise la size du text pour les dimensionner,
+*/
+switch slider {
+	border-radius: 10em;
+	border-width: 1em;
+	box-shadow: none;
+	min-width: 6em;
+	min-height: 6em;
+}
+
+slider:disabled {
+	box-shadow: none ;
+	border-color: @disabled_fg_item_color;
+}
+
+
+/* glissiere pour bouton glisseur */
+switch,
+scrollbar trough,
+scale trough {
+	border-radius: 1em;
+	border-width: 0em;
+
+	background-clip: border-box;
+
+	background-color: @entry_color;
+	box-shadow: none;
+	transition: none;
+}
+switch {
+	border-radius: 10em;
+
+	transition: all 300ms ease 100ms;
+
+	/* rend le text invisible mais aussi en change sa taille  */
+	color: transparent;
+	text-shadow: none;
+	font-size: 0.1em;
+
+	background-color: @switch_off_color;
+	box-shadow: none ;
+	background-clip: border-box;
+
+}
+switch:checked {
+	background-color: @switch_on_color;
+}
+switch:disabled {
+	background-color: @disabled_switch_off_color;
+}
+switch:disabled:checked {
+	background-color: @disabled_switch_on_color;
+}
+
+
+
+
+/* remplissage corespondant a la valeur actuel */
+scale trough highlight {
+	border-radius: 1em;
+	background-color: alpha(@info_color,0.9);
+	box-shadow: inset 0em 0em 0.3em @entry_color;
+}
+scale:disabled trough highlight {
+	background-color: alpha(@info_color,0.1);
+}
+
+/* remplissage du range acceptant le bouton glisseur */
+scrollbar trough fill,
+scale trough fill{
+	border-radius: 1em;
+	background-color: alpha(@text_color,0.9);
+	box-shadow: inset 0em 0em 0.3em @entry_color;
+}
+scrollbar:disabled trough fill,
+scale:disabled trough fill{
+	background-color: alpha(@text_color,0.1);
+}
+
+
+
+
+
+/* scale[.fine-tune][.marks-before][.marks-after] */
+scale contents{
+}
+
+/* 
+scale and scrollbar are different 
+scale need some fix for not let the slider going abit out
+same for the fill level and the highlight
+(margin around scale slider not work)
+slider_minimal_size/2+slider_border=0.4em
+*/
+scale.vertical trough{
+	padding-top: 0.4em;
+	padding-bottom: 0.4em;
+	min-height: 1em;
+}
+scale.horizontal trough{
+	padding-right: 0.4em;
+	padding-left: 0.4em;
+	min-width: 1em;
+}
+
+/* 
+balance effect with other children
+*/
+scale.vertical trough highlight{
+	margin-top: -0.4em;
+	margin-bottom: -0.4em;
+}
+scale.horizontal trough highlight{
+	margin-right: -0.4em;
+	margin-left: -0.4em;
+}
+
+scale.vertical trough fill{
+	margin-top: -0.4em;
+	margin-bottom: -0.4em;
+}
+scale.horizontal trough fill{
+	margin-right: -0.4em;
+	margin-left: -0.4em;
+}
+
+
+/* marks are little lines at the side of the scalers showing some referencial values */
+scale marks mark indicator{
+	color: @fg_item_color;
+}
+scale:disabled marks mark indicator{
+	color: @disabled_fg_item_color;
+}
+scale.vertical marks mark indicator {
+	min-width: 0.3em;
+	min-height: 0.1em;
+}
+scale.horizontal marks mark indicator {
+	min-width: 0.1em;
+	min-height: 0.3em;
+}
+
+
+
+scale value{
+	background-color: @menu_color ;
+	box-shadow: inset 0em 0em 0.3em @menu_shadow_color , 0em 0em 0.3em @menu_shadow_color;
+	border-radius:  0.2em;
+	margin: 0.2em;
+	padding: 0.2em;
+}
+scale:disabled value{
+}
+
+/* 
+   Note:
+   Firefox uses different scrollbar button names  
+   such as .button.up instead of button.top 
+
+scrollbar[.fine-tune]
+╰── contents
+    ├── [button.up]
+    ├── [button.down]
+    ├── trough
+    │   ╰── slider
+    ├── [button.up]
+    ╰── [button.down
+*/
+scrollbar trough {
+}
+scrollbar trough slider {
+}
+
+/* mode special d'affinemant du scrolling */
+scrollbar.fine-tune{
+}
+
+
+
+
+
+/*
+───────── sub popups buttons ─────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+
+
+
+
+
+
+scale trough highlight,
+scale:disabled trough highlight{
+	box-shadow: none;
+}
+
+scale trough fill,
+scrollbar trough fill{
+	box-shadow: none;
+	background-color: @menu_color;
+}
+list > row scale:disabled trough fill, popover scale:disabled trough fill, revealer scale:disabled trough fill,
+list > row scrollbar:disabled trough fill, popover scrollbar:disabled trough fill, revealer scrollbar:disabled trough fill{
+	box-shadow: none;
+	background-color: transparent;
+}
+
+
+
+popover scale marks mark indicator,list scale marks mark indicator,revealer scale marks mark indicator{ 
+	box-shadow: none;
+	color: @text_color;
+}
+popover scale:disabled marks mark indicator,list scale:disabled marks mark indicator,revealer scale:disabled marks mark indicator{ 
+	color: mix(@menu_color,@text_color,0.2);
+}
+
+list > row:selected scale marks mark indicator{
+	color: @menu_color;
+}
+list > row:selected scale:disabled marks mark indicator{
+	color: alpha(@menu_color,0.3);
+}
+
+
+
+list > row scale value, popover scale value, revealer scale value{
+	background-color: transparent;
+	box-shadow: none ;
+	border-radius:  0em;
+	margin: 0em;
+	padding: 0em;
+}
+
+list > row:selected scale value {
+}
+list > row:selected scale:disabled value{
+}
+

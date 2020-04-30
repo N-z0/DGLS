@@ -1,0 +1,72 @@
+/* 
+   checks 
+*/
+
+
+/* radio buttons and Check buttons */
+radiobutton,
+checkbutton{
+	margin-left: 0.3em;
+	margin-right: 0.3em;
+}
+
+
+/* Common General settings
+ normal stat is unpressed */
+radio,
+check{
+	min-height: 0.6em;
+	min-width: 0.6em;
+	
+	margin: 0.3em;
+
+	border-style: solid;
+	border-radius: 1em;
+	border-width: 0.1em;
+
+   background-color: @bg_item_color;
+	border-color: @fg_item_color;
+
+	box-shadow: none ;
+	transition: none;
+
+}
+
+
+
+/* pressed or toggeled  */
+radio:active,radio:checked,
+check:active,check:checked{
+   background-color: @fg_item_color;
+	border-color: @bg_item_color;
+}
+
+/*  unknow state */
+radio:indeterminate,
+check:indeterminate{
+   background-color: @indeterminate_item_color;
+	border-color: transparent;
+}
+
+
+
+/*  disabled state */
+radio:disabled,
+check:disabled{
+   background-color: @bg_item_color;
+	border-color: @disabled_fg_item_color;
+}
+
+radio:disabled:checked,
+check:disabled:checked{
+   background-color: @disabled_fg_item_color;
+	border-color: @bg_item_color;
+}
+
+radio:disabled:indeterminate,
+check:disabled:indeterminate{
+   background-color: @disabled_indeterminate_item_color;
+	border-color: transparent;
+}
+
+

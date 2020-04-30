@@ -1,0 +1,58 @@
+/* 
+Tooltip (info bulle)
+box-shadow ne fonctionne pas en outside ni en transparent inside 
+et margin,padding n'ont pas d'effets.
+
+pour les Menu de toolbar box-shadow ne fonctionne pas en outside
+et les Menu sont superposer a une Window non specifique (et donc en changeant sa couleur je change la couleur de toute le panel) 
+donc si Menu a border-radius:  1em  on vera dans les coins la couleur d'une window
+
+popover aka popup bulle (souvent utiliser pour afficher un reglage de volume)
+ */
+revealer > *, /* overlay revealer dont have background-color, so let set the background child */
+popover,
+tooltip,
+menu {
+	background-color: @menu_color ;
+	box-shadow: inset 0em 0em 0.3em @menu_shadow_color , 0em 0em 0.3em @menu_shadow_color;
+	border-radius:  0.3em;
+	padding: 0.3em;
+	margin:  0.3em; /* give some space for the shadow */
+}
+
+
+/* 
+menuitem est un sub element de menu
+If the menuitem has a submenu, it gets another CSS node with name arrow, which has the .left or .right style class.
+*/
+menu > arrow, /* for scroll up or down long menu */
+menu > menuitem {
+	background-color: @menu_tab_color;
+	box-shadow: inset 0em 0em 0.3em @fg_item_color ;
+
+	border-radius: 0.1em;
+	border-width: 0em;
+
+	margin:  0.15em;
+	padding: 0.15em; /* pour avoir une petite marge entre le contenu */
+}
+menu > arrow {
+	min-height: 1em;
+}
+/* menuitem arrow is for acessing to sub menu */
+/* sans ca les icons de fleches ne sont pas visible */
+menu > menuitem > arrow{ 
+	min-height: 1em;
+	min-width: 1em;
+}
+
+menu > arrow:hover,
+menu > menuitem:hover{
+	background-color: @fg_item_color;
+	box-shadow: inset 0em 0em 0.3em @menu_color ;
+}
+
+menu > menuitem:disabled {
+box-shadow: none ;
+}
+

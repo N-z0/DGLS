@@ -1,0 +1,467 @@
+/*
+─────────    images of panels   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+image{ /* affect: expander title, radiobutton,checkbutton, frame title */
+	color: @fg_item_color;
+	-gtk-icon-effect: dim;
+}
+
+image:disabled{ 
+	color:  @disabled_fg_item_color;
+}
+
+/* web links */
+image link{
+ 	-gtk-icon-shadow: 0em 0em 0.3em @active_label_color;
+	color: @active_label_color;
+}
+image link:visited{
+ 	-gtk-icon-shadow: 0em 0em 0.3em @link_visited_label_color;
+	color: @link_visited_label_color;
+}
+
+
+
+
+/*
+─────────    images of buttons   ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+menubar > menuitem > image, /* must concern only menubar buttons, but not sub menus */
+button.down,
+button.up , /* without, button color of spinbutton and scrollbar not change, because not includ images */
+check,
+radio,
+button image,
+list > row:selected button image,
+notebook tabs tab:checked button image, notebook tabs tab:active button image,
+modelbutton image,
+list > row:selected modelbutton image,
+notebook tabs tab:checked modelbutton image, notebook tabs tab:active modelbutton image,
+arrow{
+	color: @fg_item_color;
+	-gtk-icon-effect: dim;
+}
+/* web links */
+button.link image{
+	color: @active_label_color;
+}
+button.link:visited image{
+	color: @link_visited_label_color;
+}
+button.suggested-action image{
+	color: mix(@text_color,@good_color,0.5);
+}
+button.destructive-action image{
+	color: mix(@text_color,@warning_color,0.5);
+}
+
+
+
+menubar > menuitem:disabled > image,/* concern menu bar buttons */
+button:disabled.down,
+button:disabled.up, /* without no spinbutton and scrollbar button color change, because not includ label image, bug? */
+check:disabled,
+radio:disabled,
+button:disabled image,
+list > row:selected button:disabled image,
+notebook tabs tab:checked button:disabled image, notebook tabs tab:active button:disabled image,
+modelbutton:disabled image,
+list > row:selected modelbutton:disabled image,
+notebook tabs tab:checked modelbutton:disabled image, notebook tabs tab:active modelbutton:disabled image,
+arrow:disabled{ 
+	color: @disabled_fg_item_color;
+}
+button.suggested-action:disabled image{
+	color: mix(@menu_color,@good_color,0.2);
+}
+button.destructive-action:disabled image{
+	color: mix(@menu_color,@warning_color,0.2);
+}
+
+
+menubar > menuitem:hover > image,
+button:active.down,button:checked.down,
+button:active.up,button:checked.up,
+check:active ,check:checked, 
+radio:active,radio:checked,
+button:active image,button:checked image,
+list > row:selected button:active image,list > row:selected button:checked image, /* useless but coherent */
+notebook tabs tab:checked button:active image,notebook tabs tab:checked button:checked image, /* useless but coherent */
+notebook tabs tab:active button:active image,notebook tabs tab:active button:checked image, /* useless but coherent */
+modelbutton:active image, modelbutton:checked image,
+list > row:selected modelbutton:active image,list > row:selected modelbutton:checked image, /* useless but coherent */
+notebook tabs tab:checked modelbutton:active image,notebook tabs tab:checked  modelbutton:checked image, /* useless but coherent */
+notebook tabs tab:active modelbutton:active image,notebook tabs tab:active  modelbutton:checked image, /* useless but coherent */
+arrow:active,arrow:checked{
+	color: @bg_item_color;
+}
+button.suggested-action:active image,button.suggested-action:checked image{
+	color: mix(@menu_color,@good_color,0.2);
+}
+button.destructive-action:active image,button.destructive-action:checked image{
+	color: mix(@menu_color,@warning_color,0.2);
+}
+
+
+
+button:indeterminate.down,
+button:indeterminate.up,
+check:indeterminate,
+radio:indeterminate,
+button:indeterminate image,
+list > row:selected button:indeterminate image, /* useless but coherent */
+notebook tabs tab:checked button:indeterminate image, notebook tabs tab:active button:indeterminate image, /* useless but coherent */
+modelbutton:indeterminate image,
+list > row:selected modelbutton:indeterminate image, /* useless but coherent */
+notebook tabs tab:checked modelbutton:indeterminate image, notebook tabs tab:active modelbutton:indeterminate image,/* useless but coherent */
+arrow:indeterminate{
+	color: @bg_item_color;
+}
+button.suggested-action:indeterminate image{
+	color: transparent;
+}
+button.destructive-action:indeterminate image{
+	color: transparent;
+}
+
+
+
+
+/*
+─────────         subs n popup image style       ──────────────────   
+*/
+
+revealer image,
+tooltip image,
+popover image{
+	-gtk-icon-shadow: none ;
+	color: @fg_item_color;
+}
+
+revealer image:disabled,
+tooltip image:disabled, 
+popover image:disabled{
+	color: @disabled_fg_item_color;
+}
+
+revealer image link,
+popover image link{
+	color: @link_text_color;
+}
+revealer image link:visited,
+popover image link:visited{
+	color: @link_visited_text_color;
+}
+
+
+
+
+/*
+─────────   menu image style  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+menu arrow, /* arrow for scroll up or down long menu */
+menu > menuitem > arrow, /* arrow indicating a sub menu */
+menu > menuitem > cellview, /* cellview for combo.button menu */
+menu > menuitem > image {
+	-gtk-icon-shadow: none ;
+	color: @fg_item_color;
+}
+menu > menuitem >  image link{
+	color: @link_text_color;
+}
+menu > menuitem > image link:visited{
+	color: @link_visited_text_color;
+}
+
+menu arrow:disabled,
+menu > menuitem:disabled > image link,
+menu > menuitem:disabled > arrow,
+menu > menuitem:disabled > cellview,
+menu > menuitem:disabled > image {
+	color: @disabled_fg_item_color;
+}
+
+/* in menu only :hover is effective on not disabled items */
+menu > arrow:hover,
+menu > menuitem:hover > image link,
+menu > menuitem:hover > arrow,
+menu > menuitem:hover > cellview,
+menu > menuitem:hover > image {
+	color: @bg_item_color;
+}
+
+
+
+
+/*
+─────────   list images style  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+
+list image, /* there is some images and labels not in row */
+stackswitcher button image,
+notebook tabs tab image,
+notebook tabs arrow{ /* arrow for scroll the tabs */
+	-gtk-icon-shadow: none ;
+	color: @fg_item_color;
+}
+list image link{
+	color: @link_text_color;
+}
+list image link:visited{
+	color: @link_visited_text_color;
+}
+
+list image:disabled,
+stackswitcher button:disabled image,
+notebook tabs tab:disabled image,
+notebook tabs arrow:disabled {
+	color: @disabled_fg_item_color;
+}
+
+list > row:selected image,
+stackswitcher button:checked image, stackswitcher button:active image,
+notebook tabs tab:checked image, notebook tabs tab:active image,
+notebook tabs arrow:active{
+	color: @bg_item_color;
+}
+
+
+
+/*
+─────────   entries images style  ─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+*/
+
+button.lock image,
+/* button.color image, */
+button.font image,
+button.file image,
+button.combo,  /* no image with button.combo */
+
+entry image,
+
+iconview, 
+calendar,  
+treeview
+{
+	-gtk-icon-shadow: none ;
+	color: @fg_item_color;
+}
+
+
+
+button:disabled.lock image,
+/* button:disabled.color image, */
+button:disabled.font image,
+button:disabled.file image,
+button:disabled.combo,
+
+entry image:disabled, entry.read-only image, entry:disabled image, /*  should have label but not have label */
+
+iconview:disabled, /* no label */
+calendar:disabled,  /* no label */
+treeview:disabled { /* no label */ 
+	color: @disabled_fg_item_color;
+}
+
+
+iconview:selected,
+calendar:selected,
+treeview:selected{
+	color: @bg_item_color;
+}
+
+
+
+
+
+
+/* 
+────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────
+Hacks :
+je devrais peutetre pas ajouter ce qui suit,
+les icons devraient etre standardiser et fourni par l'appli
+mais beaucoup d'icons sont par defaut incorect.
+*/
+
+
+/* vide les bouton radio n checks
+icons de separateur que je fais disparaitre */
+button.combo arrow, /* enleve les fleche des bouton de type combo entry ,ce qui donne un bouton avec uniquement de la bordure */
+check, /* vide les bouton  checks */
+separator { /* icons de separateur que je fais disparaitre */
+	-gtk-icon-source: none;
+}
+radio { 
+	-gtk-icon-source: -gtk-icontheme("view-more-symbolic");
+}
+
+
+/* 
+ le expander a un bouton a clik pour deplier des elements cacher
+c'est clikable mais par defaut aucun icon n'est appliquer
+ */
+toolitemgroup > arrow,
+entry.combo~button.combo arrow,
+expander title arrow{
+	-gtk-icon-source: -gtk-icontheme("view-more-symbolic");
+}
+
+
+menu > arrow.top{
+	-gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+}
+menu > arrow.bottom{
+   -gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+menu menuitem arrow.left{
+	-gtk-icon-source: -gtk-icontheme("go-next-symbolic-rtl");
+}
+menu menuitem arrow.right{
+	-gtk-icon-source: -gtk-icontheme("go-next-symbolic");
+}
+
+
+notebook header.bottom tabs arrow.down,notebook header.top tabs arrow.down {
+	-gtk-icon-source: -gtk-icontheme("go-previous-symbolic");
+}
+notebook header.bottom tabs arrow.up,notebook header.top tabs arrow.up{
+	-gtk-icon-source: -gtk-icontheme("go-next-symbolic");
+}
+
+notebook header.left tabs arrow.down,notebook header.right tabs arrow.down {
+	-gtk-icon-source: -gtk-icontheme("go-next-symbolic");
+	-gtk-icon-transform: rotate(0.75turn);
+}
+notebook header.left tabs arrow.up,notebook header.right tabs arrow.up{
+	-gtk-icon-source: -gtk-icontheme("go-previous-symbolic");
+	-gtk-icon-transform: rotate(0.75turn);
+}
+
+/* 
+─────  button directional
+*/
+
+/* les icons de scrollbars sont foireu par defaut, donc... */
+scrollbar.vertical button.down {
+	-gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+scrollbar.vertical button.up {
+	-gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+}
+scrollbar.horizontal button.down {
+	-gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+	-gtk-icon-transform: rotate(0.75turn);
+}
+scrollbar.horizontal button.up {
+	-gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+	-gtk-icon-transform: rotate(0.75turn);
+}
+
+
+
+
+
+/*  NO EFFECTS */
+
+/* Spin button avec signe + ou - */
+/* impossible de trouver coment modifier ces icons */
+spinbutton button.down {
+	-gtk-icon-source: -gtk-icontheme("pan-down-symbolic");
+}
+spinbutton button.up {
+	-gtk-icon-source: -gtk-icontheme("pan-up-symbolic");
+}
+
+/* les boutton de menu popup ont une image icon, mais je ne peu pas le modifier */
+button.popup image{
+	-gtk-icon-source: -gtk-icontheme("view-more-symbolic");
+}
+
+/* concern le sort indicator des entete de tables, mais na pas d'effet */
+treeview button image{
+	-gtk-icon-source: -gtk-icontheme("go-next-symbolic");
+}
+
+
+
+
+
+
+
+
+
+
+/***********
+ * Spinner *
+ ***********/
+@keyframes spin { to {-gtk-icon-transform: rotate(1turn); } }
+
+
+spinner{ /* inactive stat is the normal state */
+	color: @fg_item_color;
+	-gtk-icon-shadow: 0em 0em 0.2em @fg_item_color;
+	-gtk-icon-effect: dim;
+}
+
+/*  When the animation is active, the :checked pseudoclass is added .  */
+spinner:checked {
+	animation: spin 1s linear infinite;
+}
+
+spinner:disabled{ 
+	color: @disabled_fg_item_color;
+	-gtk-icon-shadow: none ;
+	animation: none ;
+}
+
+
+
+
+revealer spinner,
+tooltip spinner,
+popover spinner,
+
+list spinner,
+notebook tab spinner,
+menu spinner,
+
+entry spinner,
+iconview spinner,
+calendar spinner,
+treeview spinner{
+	-gtk-icon-shadow: none ;
+	color: @text_color;
+}
+
+revealer spinner:disabled, /* spinner normal stat is the inactive disabled state */
+tooltip spinner:disabled,
+popover spinner:disabled,
+
+list spinner:disabled,
+notebook tab spinner:disabled,
+menu spinner:disabled,
+
+entry spinner:disabled,
+iconview spinner:disabled,
+calendar spinner:disabled,
+treeview spinner:disabled{
+	color: mix(@menu_color,@text_color,0.2);
+}
+
+list row:selected spinner,
+notebook tab:checked spinner, notebook tab:active spinner,
+menu > menuitem:hover spinner,
+iconview:selected spinner,
+calendar:selected spinner,
+treeview:selected spinner{
+	color: @menu_color;
+}
+
+
+
+
+
